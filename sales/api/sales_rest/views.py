@@ -50,3 +50,16 @@ def api_list_customers(request):
             {"customers": customers},
             encoder=CustomerListEncoder
         )
+    else:
+        content = json.loads(request.body)
+        customer = Customer.objects.create(**content)
+        return JsonResponse(
+            customer,
+            encoder=CustomerListEncoder,
+            safe=False
+        )
+
+@require_http_methods(["DELETE"])
+def api_delete_customer(request, pk):
+    count, _ = Customer.objects.filter(id=pk).delete()
+    return JsonResponse({"deleted": count > 0})
