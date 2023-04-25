@@ -4,7 +4,7 @@ from django.views.decorators.http import require_http_methods
 import json
 
 from common.json import ModelEncoder
-from .models import AutomobileVO, Salesperson, Customer
+from .models import AutomobileVO, Salesperson, Customer, Sale
 
 class SalespeopleListEncoder(ModelEncoder):
     model = Salesperson
@@ -17,6 +17,20 @@ class SalespersonDetailEncoder(ModelEncoder):
 class CustomerListEncoder(ModelEncoder):
     model = Customer
     properties = ["first_name", "last_name", "address", "phone_number", "id"]
+
+class SalesListEncoder(ModelEncoder):
+    model = Sale
+    properties = ["automobile", "salesperson", "customer"]
+
+class SaleDetailEncoder(ModelEncoder):
+    model = Sale
+    properties=["id"]
+    def get_extra_data(self, o):
+        return {
+            "automobile": o.automobile.vin,
+            "customer": o.customer.first_name,
+            "salesperson": o.salesperson.first_name
+            }
 
 
 @require_http_methods(["GET", "POST"])
@@ -62,4 +76,49 @@ def api_list_customers(request):
 @require_http_methods(["DELETE"])
 def api_delete_customer(request, pk):
     count, _ = Customer.objects.filter(id=pk).delete()
+    return JsonResponse({"deleted": count > 0})
+
+
+@require_http_methods(["GET", "POST"])
+def api_list_sales(request):
+    if request.method == "GET":
+        sales = Sale.objects.all()
+        return JsonResponse(
+            {"sales": sales},
+            encoder=SaleDetailEncoder
+        )
+    else:
+        content = json.loads(request.body)
+        try:
+            automobile = AutomobileVO.objects.get(vin=content["automobile"])
+            content["automobile"] = automobile
+        except AutomobileVO.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid automobile vin"}
+            )
+        try:
+            salesperson = Salesperson.objects.get(employee_id=content["salesperson"])
+            content["salesperson"] = salesperson
+        except Salesperson.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid salesperson"}
+            )
+        try:
+            customer = Customer.objects.get(id=content["customer"])
+            content["customer"] = customer
+        except Customer.DoesNotExist:
+            return JsonResponse(
+                {"message": "Invalid customer"}
+            )
+        sale = Sale.objects.create(**content)
+        return JsonResponse({
+            "automobile": automobile.vin,
+            "salesperson": salesperson.first_name,
+            "customer": customer.first_name
+        },
+        )
+
+@require_http_methods(["DELETE"])
+def api_delete_sale(request, pk):
+    count, _ = Sale.objects.filter(id=pk).delete()
     return JsonResponse({"deleted": count > 0})

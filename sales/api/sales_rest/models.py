@@ -12,7 +12,7 @@ class Customer(models.Model):
     phone_number = models.CharField(max_length=15)
 
 class AutomobileVO(models.Model):
-    vin = models.SmallIntegerField()
+    vin = models.CharField(max_length=200)
 
 class Sale(models.Model):
     automobile = models.ForeignKey(
