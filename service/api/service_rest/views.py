@@ -46,6 +46,19 @@ class AppointmentListEncoder(ModelEncoder):
     def get_extra_data(self, o):
         return {"technician": o.technician.employee_id}
 
+class AppointmentDetailEncoder(ModelEncoder):
+    model = Appointment
+    properties = [
+        "date_time",
+        "reason",
+        "status",
+        "vin",
+        "customer",
+    ]
+    encoders = {
+        "technician": TechnicianDetailEncoder(),
+    }
+
 # Used to access appointment property data for details
 class AppointmentUpdateEncoder(ModelEncoder):
     model = Appointment
@@ -93,12 +106,20 @@ def api_list_appointments(request):
     else:
         content = json.loads(request.body)
 
-        appointment = Appointment.objects.create(**content)
-        return JsonResponse(
-            appointment,
-            encoder=AppointmentListEncoder,
-            safe=False,
-        )
+        try:
+            technician = Technician.objects.get(employee_id=content["technician"])
+            content["technician"] = technician
+            appointment = Appointment.objects.create(**content)
+            return JsonResponse(
+                appointment,
+                encoder=AppointmentListEncoder,
+                safe=False,
+            )
+
+        except Technician.DoesNotExist:
+            return JsonResponse({"message": "Invalid technician id"}, status=400)
+
+
 
 @require_http_methods(["DELETE"])
 def api_delete_appointment(request, pk):
@@ -106,30 +127,27 @@ def api_delete_appointment(request, pk):
         count, _ = Appointment.objects.filter(id=pk).delete()
         return JsonResponse({"deleted": count > 0})
 
+
 @require_http_methods(["PUT"])
-def api_cancel_appointment(request, pk):
+def api_cancel_appointment(request, id):
     if request.method == "PUT":
 
-        content = json.loads(request.body)
-
-        Appointment.objects.filter(id=pk).update(**content)
-        appointment = Appointment.objects.get(id=pk)
+        appointment = Appointment.objects.get(id=id)
+        appointment.cancel()
         return JsonResponse(
             appointment,
-            encoder=AppointmentUpdateEncoder,
+            encoder=AppointmentDetailEncoder,
             safe=False
         )
 
 @require_http_methods(["PUT"])
-def api_finish_appointment(request, pk):
+def api_finish_appointment(request, id):
     if request.method == "PUT":
 
-        content = json.loads(request.body)
-
-        Appointment.objects.filter(id=pk).update(**content)
-        appointment = Appointment.objects.get(id=pk)
+        appointment = Appointment.objects.get(id=id)
+        appointment.finished()
         return JsonResponse(
             appointment,
-            encoder=AppointmentUpdateEncoder,
+            encoder=AppointmentDetailEncoder,
             safe=False
         )
