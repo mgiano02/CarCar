@@ -8,7 +8,7 @@ class Technician(models.Model):
 
 
 class AutomobileVO(models.Model):
-    vin = models.SmallIntegerField()
+    vin = models.CharField(max_length=100)
     import_href = models.CharField(max_length=200, unique=True)
 
 class Appointment(models.Model):
