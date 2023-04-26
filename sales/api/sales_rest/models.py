@@ -30,3 +30,4 @@ class Sale(models.Model):
         related_name="sale",
         on_delete=models.CASCADE
     )
+    price = models.CharField(max_length=20)

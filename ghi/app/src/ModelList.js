@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 function ModelList(props){
-    const [autos, setAutos] = useState([])
+    const [models, setModels] = useState([])
 
     const fetchData = async() => {
-        const response = await fetch('http://localhost:8100/api/automobiles/');
+        const response = await fetch('http://localhost:8100/api/models/');
         if (response.ok) {
             const data = await response.json();
-            setAutos(data.autos)
+            setModels(data.models)
             console.log(data)
         }
     }
@@ -28,13 +28,13 @@ function ModelList(props){
                 </tr>
             </thead>
             <tbody>
-                {autos.map(auto => {
+                {models.map(model => {
                     return (
                         <tr key="auto.vin">
-                            <td>{auto.model.name}</td>
-                            <td>{auto.model.manufacturer.name}</td>
+                            <td>{model.name}</td>
+                            <td>{model.manufacturer.name}</td>
                             <td>
-                                <img src={auto.model.picture_url} />
+                                <img src={model.picture_url} />
                             </td>
                         </tr>
                     )

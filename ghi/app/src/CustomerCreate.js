@@ -42,6 +42,12 @@ function CustomerCreate(props) {
         if (response.ok) {
             const newCustomer = await response.json()
             console.log(newCustomer)
+
+            setFirstName('');
+            setLastName('');
+            setAddress('');
+            setPhonenumber('');
+
         }
     }
 
@@ -50,21 +56,21 @@ function CustomerCreate(props) {
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Add a Customer</h1>
-            <form onSubmit={handleSubmit} id="create-location-form">
+            <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3">
-                <input onChange={handleFirstNameChange} placeholder="First Name..." required type="text" name="first_name" id="first_name" className="form-control"></input>
+                <input onChange={handleFirstNameChange} placeholder="First Name..." required type="text" name="first_name" id="first_name" className="form-control" value={firstName}></input>
                 <label htmlFor="first_name">First Name...</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={handleLastNameChange} placeholder="Last Name..." required type="text" name="last_name" id="last_name" className="form-control"></input>
+                <input onChange={handleLastNameChange} placeholder="Last Name..." required type="text" name="last_name" id="last_name" className="form-control" value={lastName}></input>
                 <label htmlFor="last_name">Last Name...</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={handleAddressChange}placeholder="Address..." required type="text" name="address" id="address" className="form-control"></input>
+                <input onChange={handleAddressChange}placeholder="Address..." required type="text" name="address" id="address" className="form-control" value={address}></input>
                 <label htmlFor="address">Address...</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={handlePhonenumberChange}placeholder="Phone number..." required type="text" name="phone_number" id="phone_number" className="form-control"></input>
+                <input onChange={handlePhonenumberChange}placeholder="Phone number..." required type="text" name="phone_number" id="phone_number" className="form-control" value={phonenumber}></input>
                 <label htmlFor="phone_number">Phone number...</label>
                 </div>
                 <button className="btn btn-primary">Create</button>

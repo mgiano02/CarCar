@@ -24,12 +24,13 @@ class SalesListEncoder(ModelEncoder):
 
 class SaleDetailEncoder(ModelEncoder):
     model = Sale
-    properties=["id"]
+    properties=["id", "price"]
     def get_extra_data(self, o):
         return {
             "automobile": o.automobile.vin,
-            "customer": o.customer.first_name,
-            "salesperson": o.salesperson.first_name,
+            "customer": o.customer.first_name + " " + o.customer.last_name,
+            "customer_id": o.customer.id,
+            "salesperson": o.salesperson.first_name + " " + o.salesperson.last_name,
             "salesperson_id": o.salesperson.employee_id,
             }
 
@@ -125,8 +126,8 @@ def api_list_sales(request):
             sale = Sale.objects.create(**content)
             return JsonResponse({
                 "automobile": automobile.vin,
-                "salesperson": salesperson.first_name,
-                "customer": customer.first_name
+                "salesperson": salesperson.first_name + " " + salesperson.last_name,
+                "customer": customer.first_name + " " + customer.last_name
             },
             )
         except:

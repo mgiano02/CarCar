@@ -38,7 +38,7 @@ function SaleList(props) {
                             <td>{sale.salesperson}</td>
                             <td>{sale.customer}</td>
                             <td>{sale.automobile}</td>
-
+                            <td>{sale.price}</td>
                         </tr>
                     )
                 })}
