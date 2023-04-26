@@ -14,21 +14,30 @@ function SalespeopleList(props){
 
     useEffect(() => {
         fetchData();
-    });
+    }, []);
 
     return (
     <>
     <h1>Salespeople</h1>
     <table className="table table-striped">
         <thead>
-            <th>Employee ID</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <tr>
+                <th>Employee ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+            </tr>
+
         </thead>
         <tbody>
-            <tr>
-                <td>hi</td>
-            </tr>
+        {salespeople.map(person => {
+            return (
+                <tr key={person.employee_id}>
+                    <td>{person.employee_id}</td>
+                    <td>{person.first_name}</td>
+                    <td>{person.last_name}</td>
+                </tr>
+            )
+        })}
         </tbody>
     </table>
     </>
