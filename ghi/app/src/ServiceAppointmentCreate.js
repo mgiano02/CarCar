@@ -54,12 +54,19 @@ function ServiceAppointmentCreate() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
+        let dateTime;
+        let split;
         const data = {};
 
         data.vin = vin;
         data.customer = customer;
-        data.date_time = date;
+        data.date_time = dateTime;
+        dateTime.split(" ");
+        split[0] = date;
+        console.log(date);
         data.date_time = time;
+        split[1] = time;
+        console.log(time);
         data.technician = technician;
         data.reason = reason;
 
@@ -113,7 +120,7 @@ function ServiceAppointmentCreate() {
                     <option value="">Choose a Technician</option>
                         {appointments.map(appointment => {
                             return (
-                                <option key={appointment.vin} value={appointment.vin}>
+                                <option key={appointment.customer} value={appointment.customer}>
                                     {appointment.technician}
                                 </option>
                             )

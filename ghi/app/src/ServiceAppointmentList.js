@@ -3,9 +3,11 @@ import React, {useEffect, useState} from "react";
 function ServiceAppointmentList() {
 
     const [appointments, setAppointments] = useState([]);
+    // const [automobiles, setAutomobiles] = useState([]);
+    const [status, setStatus] = useState("PENDING");
 
 
-    const fetchData = async () => {
+    const fetchAppointmentData = async () => {
         const url = "http://localhost:8080/api/appointments/";
 
         const response = await fetch(url);
@@ -18,9 +20,86 @@ function ServiceAppointmentList() {
     }
 
     useEffect(() => {
-        fetchData();
+        fetchAppointmentData();
     }, []);
 
+
+    // const fetchAutomobileData = async () => {
+    //     const url = "http://localhost:8100/api/automobiles/";
+
+    //     const response = await fetch(url);
+
+    //     if (response.ok) {
+    //         const data = await response.json()
+    //         console.log(data)
+    //         setAutomobiles(data.automobiles)
+    //     }
+    // }
+
+    // useEffect(() => {
+    //     fetchAutomobileData();
+    // }, []);
+
+
+    const handleCancel = async (id) => {
+
+        const data = {};
+
+        data.status = "CANCEL";
+
+        const cancelUrl = `http://localhost:8080/api/appointments/${id}/cancel`;
+        const fetchConfig = {
+            method: "put",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+
+        const response = await fetch(cancelUrl, fetchConfig);
+        if (response.ok) {
+            const cancelAppointment = await response.json();
+            console.log(cancelAppointment);
+            setStatus(cancelAppointment.status);
+        }
+    }
+
+    const handleFinish = async (id) => {
+
+        const data = {};
+
+        data.status = "FINISHED";
+
+        const finishUrl = `http://localhost:8080/api/appointments/${id}/finish`;
+        const fetchConfig = {
+        method: "put",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json",
+        },
+        };
+
+        const response = await fetch(finishUrl, fetchConfig);
+        if (response.ok) {
+            const finishAppointment = await response.json();
+            console.log(finishAppointment);
+            setStatus(finishAppointment.status);
+        }
+    }
+
+
+    function isVip(vin) {
+        if (vin != undefined) {
+            console.log("test");
+            return (
+                <td>Yes</td>
+            )
+        } else {
+            return (
+                <td>No</td>
+            )
+        }
+    }
 
     return (
         <>
@@ -42,14 +121,14 @@ function ServiceAppointmentList() {
                 return (
                     <tr key={appointment.vin}>
                         <td>{appointment.vin}</td>
-                        <td>VIP???</td>
+                        {isVip(appointment.vin)}
                         <td>{appointment.customer}</td>
                         <td>{appointment.date_time}</td>
                         <td>{appointment.time}</td>
                         <td>{appointment.technician}</td>
                         <td>{appointment.reason}</td>
-                        <button className="btn btn-primary">Cancel</button>
-                        <button className="btn btn-primary">Finish</button>
+                        <td><button onClick={() => handleCancel(appointment.id)} type="button" className="btn btn-danger">Cancel</button></td>
+                        <td><button onClick={() => handleFinish(appointment.id)} type="button" className="btn btn-success">Finish</button></td>
                     </tr>
                 )
             })}

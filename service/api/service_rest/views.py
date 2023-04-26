@@ -41,6 +41,7 @@ class AppointmentListEncoder(ModelEncoder):
         "status",
         "vin",
         "customer",
+        "id",
     ]
 
     def get_extra_data(self, o):
