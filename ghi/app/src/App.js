@@ -4,7 +4,7 @@ import Nav from './Nav';
 import SalespeopleList from './SalespeopleList';
 import ManufacturerList from './ManufacturerList';
 import ManufacturerCreate from './ManufacturerCreate';
-import AutomobileList from './AutomobileList';
+import ModelList from './ModelList';
 import SalespeopleCreate from './SalespeopleCreate';
 import CustomerList from './CustomerList';
 import CustomerCreate from './CustomerCreate';
@@ -20,7 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="manufacturers" element={<ManufacturerList />} />
-          <Route path="automobiles" element={<AutomobileList />} />
+          <Route path="models" element={<ModelList />} />
           <Route path="manufacturers/new" element={<ManufacturerCreate />} />
           <Route path="salespeople" element={<SalespeopleList />} />
           <Route path="salespeople/new" element={<SalespeopleCreate />} />
