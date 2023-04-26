@@ -29,7 +29,8 @@ class SaleDetailEncoder(ModelEncoder):
         return {
             "automobile": o.automobile.vin,
             "customer": o.customer.first_name,
-            "salesperson": o.salesperson.first_name
+            "salesperson": o.salesperson.first_name,
+            "salesperson_id": o.salesperson.employee_id,
             }
 
 
