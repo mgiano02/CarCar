@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-function AutomobileList(props){
+function ModelList(props){
     const [autos, setAutos] = useState([])
 
     const fetchData = async() => {
@@ -44,4 +44,4 @@ function AutomobileList(props){
         </>
     )
 }
-export default AutomobileList;
+export default ModelList;
