@@ -11,6 +11,10 @@ import CustomerCreate from './CustomerCreate';
 import SaleList from './SaleList';
 import SaleCreate from './SaleCreate';
 import SaleHistory from './SalespersonHistory';
+import TechnicianCreate from './TechnicianCreate';
+import TechnicianList from './TechnicianList';
+import ServiceAppointmentCreate from './ServiceAppointmentCreate';
+import ServiceAppointmentList from './ServiceAppointmentList';
 
 function App() {
   return (
@@ -29,6 +33,10 @@ function App() {
           <Route path="sales" element={<SaleList />} />
           <Route path="sales/new" element={<SaleCreate />} />
           <Route path="salespeople/history" element={<SaleHistory />} />
+          <Route path="technician/new" element={<TechnicianCreate />} />
+          <Route path="technician" element={<TechnicianList />} />
+          <Route path="appointment/new" element={<ServiceAppointmentCreate />} />
+          <Route path="appointment" element={<ServiceAppointmentList />} />
 
         </Routes>
       </div>
