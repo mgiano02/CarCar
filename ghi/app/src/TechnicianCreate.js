@@ -71,7 +71,7 @@ function TechnicianCreate() {
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Add a Technician</h1>
-            <form onSubmit={handleSubmit} id="create-location-form">
+            <form onSubmit={handleSubmit} id="create-technician-form">
                 <div className="form-floating mb-3">
                 <input onChange={handleFirstNameChange} placeholder="First Name" required value={firstName} type="text" name="first_name" id="first_name" className="form-control"></input>
                 <label htmlFor="first_name">First Name</label>
@@ -82,7 +82,7 @@ function TechnicianCreate() {
                 </div>
                 <div className="form-floating mb-3">
                 <input onChange={handleEmployeeIdChange} placeholder="Employee ID" required value={employeeId} type="number" name="employee_id" id="employee_id" className="form-control"></input>
-                <label htmlFor="address">Employee ID</label>
+                <label htmlFor="employee_id">Employee ID</label>
                 </div>
                 <button className="btn btn-primary">Create</button>
             </form>
