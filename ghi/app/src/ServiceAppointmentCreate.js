@@ -58,8 +58,8 @@ function ServiceAppointmentCreate() {
 
         data.vin = vin;
         data.customer = customer;
-        data.date = date;
-        data.time = time;
+        data.date_time = date;
+        data.date_time = time;
         data.technician = technician;
         data.reason = reason;
 
@@ -91,7 +91,7 @@ function ServiceAppointmentCreate() {
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Add an appointment</h1>
-            <form id="create-appointment-form">
+            <form onSubmit={handleSubmit} id="create-appointment-form">
                 <div className="form-floating mb-3">
                 <input onChange={handleVinChange} placeholder="Automobile VIN" required value={vin} type="text" name="vin" id="vin" className="form-control"></input>
                 <label htmlFor="vin">Automobile VIN</label>
@@ -109,7 +109,7 @@ function ServiceAppointmentCreate() {
                 <label htmlFor="time">Time</label>
                 </div>
                 <div className="mb-3">
-                <select onChange={handleTechnicianChange} required value={technician} name="technician" id="technician" className="form-select"></select>
+                <select onChange={handleTechnicianChange} required value={technician} name="technician" id="technician" className="form-select">
                     <option value="">Choose a Technician</option>
                         {appointments.map(appointment => {
                             return (
@@ -118,6 +118,7 @@ function ServiceAppointmentCreate() {
                                 </option>
                             )
                         })}
+                </select>
                 </div>
                 <div className="form-floating mb-3">
                 <input onChange={handleReasonChange} placeholder="Reason" required value={reason} type="text" name="reason" id="reason" className="form-control"></input>
