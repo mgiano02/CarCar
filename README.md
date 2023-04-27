@@ -44,28 +44,32 @@ Endpoint: List manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
 Description: show a list of all manufacturers \
 What is necessary: Just the URL and a GET request \
-Example:
+Example: \
+![Alt text](list-manufacturers.png)
 
-Endpoint: Create manufacturers
-Url: http://localhost:8100/api/manufacturers/
-Description: Create a new manufacturer
-What is necessary:
-Example:
 
-Endpoint: Get a manufacturer
-Url: http://localhost:8100/api/manufacturers/:id
-Description: Show a specific manufacturer
-What is necessary:
-Example:
+Endpoint: Create manufacturers \
+Url: http://localhost:8100/api/manufacturers/ \
+Description: Create a new manufacturer \
+What is necessary: JSON body with field "name", URL with the POST request \
+Example: \
+![Alt text](create-manufacturer.png)
 
-Endpoint: Update manufacturer
-Url: http://localhost:8100/api/manufacturers/:id
-Description: Update a specific manufacturer
-What is necessary:
-Example:
 
-Endpoint: Delete manufacturer
-Url: http://localhost:8100/api/manufacturers/:id
-Description: delete a specific manufacturer
-What is necessary:
-Example:
+Endpoint: Get a manufacturer \
+Url: http://localhost:8100/api/manufacturers/:id \
+Description: Show a specific manufacturer \
+What is necessary: \
+Example: \
+
+Endpoint: Update manufacturer \
+Url: http://localhost:8100/api/manufacturers/:id \
+Description: Update a specific manufacturer \
+What is necessary: \
+Example: \
+
+Endpoint: Delete manufacturer \
+Url: http://localhost:8100/api/manufacturers/:id \
+Description: delete a specific manufacturer \
+What is necessary: \
+Example: \
