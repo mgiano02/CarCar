@@ -19,7 +19,6 @@ def poll():
         print('Sales poller polling for data')
         try:
             response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles/")
-            print("hi")
             content = json.loads(response.content)
             print(content)
             for auto in content["autos"]:
@@ -29,7 +28,6 @@ def poll():
                     "vin":auto["vin"]
                     }
                 )
-            # Write your polling logic, here
         except Exception as e:
             print(e, file=sys.stderr)
         time.sleep(60)
