@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 function ServiceAppointmentList() {
 
     const [appointments, setAppointments] = useState([]);
-    // const [automobiles, setAutomobiles] = useState([]);
+    const [automobiles, setAutomobiles] = useState([]);
     const [status, setStatus] = useState("PENDING");
 
 
@@ -19,26 +19,34 @@ function ServiceAppointmentList() {
         }
     }
 
+
+    const fetchAutomobileData = async () => {
+        const url = "http://localhost:8100/api/automobiles/";
+
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json();
+
+            // if (data.autos.sold == true) {
+            //     return (
+            //         <td>Yes</td>
+            //     )
+            // } else {
+            //     return (
+            //         <td>No</td>
+            //     )
+            // }
+
+            console.log(data.autos);
+            setAutomobiles(data.autos);
+        }
+    }
+
     useEffect(() => {
         fetchAppointmentData();
+        fetchAutomobileData();
     }, []);
-
-
-    // const fetchAutomobileData = async () => {
-    //     const url = "http://localhost:8100/api/automobiles/";
-
-    //     const response = await fetch(url);
-
-    //     if (response.ok) {
-    //         const data = await response.json()
-    //         console.log(data)
-    //         setAutomobiles(data.automobiles)
-    //     }
-    // }
-
-    // useEffect(() => {
-    //     fetchAutomobileData();
-    // }, []);
 
 
     const handleCancel = async (id) => {
@@ -87,18 +95,18 @@ function ServiceAppointmentList() {
         }
     }
 
-
+    // console.log("automobiles", automobiles)
     function isVip(vin) {
-        if (vin != undefined) {
-            console.log("test");
-            return (
-                <td>Yes</td>
-            )
-        } else {
-            return (
-                <td>No</td>
-            )
-        }
+        // Loops through list of automobiles in inventory
+        let isVip = "No";
+        for (let auto of automobiles) {
+            // if vin from appointment list is the same as the vin in the inventory list
+            if (vin == auto.vin) {
+                console.log("test");
+                isVip = "Yes";
+            }
+            }
+        return <td>{isVip}</td>
     }
 
     return (

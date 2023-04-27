@@ -12,17 +12,7 @@ function AutomobileList() {
 
         if (response.ok) {
             const data = await response.json();
-
-            // if (data.autos.sold == true) {
-            //     return (
-            //         <td>Yes</td>
-            //     )
-            // } else {
-            //     return (
-            //         <td>No</td>
-            //     )
-            // }
-
+            
             console.log(data.autos);
             setAutomobiles(data.autos);
         }
