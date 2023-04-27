@@ -86,15 +86,15 @@ function AutomobileCreate() {
               <h1>Create an Automobile</h1>
               <form onSubmit={handleSubmit} id="create-form">
                 <div className="form-floating mb-3">
-                  <input onChange={handleColorChange} placeholder="Color" required type="text" name="color" id="color" className="form-control"></input>
+                  <input onChange={handleColorChange} placeholder="Color" required value={color} type="text" name="color" id="color" className="form-control"></input>
                   <label htmlFor="name">Color</label>
                 </div>
                 <div className="form-floating mb-3">
-                  <input onChange={handleYearChange} placeholder="Year" required type="number" name="year" id="year" className="form-control"></input>
+                  <input onChange={handleYearChange} placeholder="Year" required value={year} type="number" name="year" id="year" className="form-control"></input>
                   <label htmlFor="picture_url">Year</label>
                 </div>
                 <div className="form-floating mb-3">
-                  <input onChange={handleVinChange} placeholder="VIN" required type="text" name="vin" id="vin" className="form-control"></input>
+                  <input onChange={handleVinChange} placeholder="VIN" required value={vin} type="text" name="vin" id="vin" className="form-control"></input>
                   <label htmlFor="name">VIN</label>
                 </div>
                 {/* <div className="form-floating mb-3">
@@ -102,7 +102,7 @@ function AutomobileCreate() {
                   <label htmlFor="name">Sold</label>
                 </div> */}
                 <div className="mb-3">
-                  <select onChange={handleModelChange} placeholder="Model" required name="model" id="model" className="form-select">
+                  <select onChange={handleModelChange} placeholder="Model" required value={model} name="model" id="model" className="form-select">
                   <option value="">Model</option>
                   {models.map(model => {
                     return (

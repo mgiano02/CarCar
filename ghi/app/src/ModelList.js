@@ -30,7 +30,7 @@ function ModelList(props){
             <tbody>
                 {models.map(model => {
                     return (
-                        <tr key="auto.vin">
+                        <tr key={model.id}>
                             <td>{model.name}</td>
                             <td>{model.manufacturer.name}</td>
                             <td>

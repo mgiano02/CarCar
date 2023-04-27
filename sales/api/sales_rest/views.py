@@ -153,7 +153,7 @@ def api_list_sales(request):
             return response
 
         try:
-            sale = Sale.objects.create(**content)
+            Sale.objects.create(**content)
             return JsonResponse({
                 "automobile": automobile.vin,
                 "salesperson": salesperson.first_name + " " + salesperson.last_name,
