@@ -40,10 +40,10 @@ Diagram of the different services and how they interact with each other. (Front 
 
 Manufacturers
 
-Endpoint: List manufacturers
-Url: http://localhost:8100/api/manufacturers/
-Description: show a list of all manufacturers
-What is necessary: Just the URL and a GET request
+Endpoint: List manufacturers \
+Url: http://localhost:8100/api/manufacturers/ \
+Description: show a list of all manufacturers \
+What is necessary: Just the URL and a GET request \
 Example:
 
 Endpoint: Create manufacturers
