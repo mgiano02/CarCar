@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 
 function ServiceAppointmentCreate() {
 
-    const [appointments, setAppointments] = useState([]);
+    const [technicians, setTechnicians] = useState([]);
 
     const [vin, setVin] = useState("");
     const handleVinChange = (event) => {
@@ -19,11 +19,11 @@ function ServiceAppointmentCreate() {
         const value = event.target.value;
         setDate(value);
     }
-    const [time, setTime] = useState("");
-    const handleTimeChange = (event) => {
-        const value = event.target.value;
-        setTime(value);
-    }
+    // const [time, setTime] = useState("");
+    // const handleTimeChange = (event) => {
+    //     const value = event.target.value;
+    //     setTime(value);
+    // }
     const [technician, setTechnician] = useState("");
     const handleTechnicianChange = (event) => {
         const value = event.target.value;
@@ -36,14 +36,14 @@ function ServiceAppointmentCreate() {
     }
 
     const fetchData = async () => {
-        const url = "http://localhost:8080/api/appointments/";
+        const url = "http://localhost:8080/api/technicians/";
 
         const response = await fetch(url);
 
         if (response.ok) {
             const data = await response.json()
             console.log(data)
-            setAppointments(data.appointments)
+            setTechnicians(data.technicians)
         }
     }
 
@@ -54,19 +54,13 @@ function ServiceAppointmentCreate() {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        let dateTime;
-        let split;
         const data = {};
 
         data.vin = vin;
         data.customer = customer;
-        data.date_time = dateTime;
-        dateTime.split(" ");
-        split[0] = date;
-        console.log(date);
-        data.date_time = time;
-        split[1] = time;
-        console.log(time);
+        data.date_time = date;
+        // data.date_time = time;
+        data.status = "PENDING";
         data.technician = technician;
         data.reason = reason;
 
@@ -87,7 +81,7 @@ function ServiceAppointmentCreate() {
             setVin("");
             setCustomer("");
             setDate("");
-            setTime("");
+            // setTime("");
             setTechnician("");
             setReason("");
         }
@@ -108,20 +102,20 @@ function ServiceAppointmentCreate() {
                 <label htmlFor="customer">Customer</label>
                 </div>
                 <div className="form-floating mb-3">
-                <input onChange={handleDateChange} placeholder="Date" required value={date} type="date" name="date" id="date" className="form-control"></input>
+                <input onChange={handleDateChange} placeholder="Date" required value={date} type="datetime-local" name="date" id="date" className="form-control"></input>
                 <label htmlFor="date">Date</label>
                 </div>
-                <div className="form-floating mb-3">
+                {/* <div className="form-floating mb-3">
                 <input onChange={handleTimeChange} placeholder="Time" required value={time} type="time" name="time" id="time" className="form-control"></input>
                 <label htmlFor="time">Time</label>
-                </div>
+                </div> */}
                 <div className="mb-3">
                 <select onChange={handleTechnicianChange} required value={technician} name="technician" id="technician" className="form-select">
                     <option value="">Choose a Technician</option>
-                        {appointments.map(appointment => {
+                        {technicians.map(technician => {
                             return (
-                                <option key={appointment.customer} value={appointment.customer}>
-                                    {appointment.technician}
+                                <option key={technician.employee_id} value={technician.employee_id}>
+                                    {technician.employee_id}
                                 </option>
                             )
                         })}

@@ -123,8 +123,8 @@ function ServiceAppointmentList() {
                         <td>{appointment.vin}</td>
                         {isVip(appointment.vin)}
                         <td>{appointment.customer}</td>
-                        <td>{appointment.date_time}</td>
-                        <td>{appointment.time}</td>
+                        <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
+                        <td>{new Date(appointment.date_time).toLocaleTimeString()}</td>
                         <td>{appointment.technician}</td>
                         <td>{appointment.reason}</td>
                         <td><button onClick={() => handleCancel(appointment.id)} type="button" className="btn btn-danger">Cancel</button></td>

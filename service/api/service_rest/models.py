@@ -15,7 +15,7 @@ class AutomobileVO(models.Model):
     import_href = models.CharField(max_length=200, unique=True)
 
 class Appointment(models.Model):
-    date_time = models.DateTimeField()
+    date_time = models.DateTimeField(blank=True, null=True)
     reason = models.CharField(max_length=200)
     status = models.CharField(max_length=100)
     vin = models.CharField(max_length=100)

@@ -39,13 +39,13 @@ function VehicleModelCreate() {
 
 
     const handleSubmit = async (event) => {
-        event.PreventDefault();
+        event.preventDefault();
 
         const data = {};
 
         data.name = name;
         data.picture_url = picture;
-        data.manufacturer = manufacturer;
+        data.manufacturer_id = manufacturer;
 
         const modelUrl = "http://localhost:8100/api/models/";
         const fetchConfig = {
@@ -55,7 +55,7 @@ function VehicleModelCreate() {
                 "Content-Type": "application/json",
             },
         };
-
+        console.log(data);
         const response = await fetch(modelUrl, fetchConfig);
         if (response.ok) {
             const newModel = await response.json();
@@ -63,7 +63,7 @@ function VehicleModelCreate() {
 
             setName("");
             setPicture("");
-            setManufacturers("");
+            setManufacturer("");
         }
     }
 
@@ -81,16 +81,16 @@ function VehicleModelCreate() {
                   <input onChange={handlePictureChange} placeholder="Vehicle Model Picture" required value={picture} type="text" name="picture_url" id="picture_url" className="form-control"></input>
                   <label htmlFor="picture_url">Vehicle Model Picture</label>
                 </div>
-                <div className="form-floating mb-3">
+                <div className="mb-3">
                   <select onChange={handleManufacturerChange} placeholder="Manufacturer" required value={manufacturer} name="manufacturer" id="manufacturer" className="form-select">
-                  <option value="">Manufacturer</option>
-                  {manufacturers.map(manufacturer => {
-                    return (
-                        <option key={manufacturer.name} value={manufacturer.name}>
-                            {manufacturer.name}
-                        </option>
-                    );
-                  })}
+                    <option value="">Manufacturer</option>
+                    {manufacturers.map(manufacturer => {
+                      return (
+                          <option key={manufacturer.id} value={manufacturer.id}>
+                              {manufacturer.name}
+                          </option>
+                      );
+                    })}
                   </select>
                 </div>
                 <button className="btn btn-primary">Create</button>
