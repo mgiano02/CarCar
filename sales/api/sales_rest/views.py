@@ -38,11 +38,16 @@ class SaleDetailEncoder(ModelEncoder):
 @require_http_methods(["GET", "POST"])
 def api_list_salespeople(request):
     if request.method == "GET":
-        salespeople = Salesperson.objects.all()
-        return JsonResponse(
-            {"salespeople": salespeople},
-            encoder=SalespeopleListEncoder
-        )
+        try:
+            salespeople = Salesperson.objects.all()
+            return JsonResponse(
+                {"salespeople": salespeople},
+                encoder=SalespeopleListEncoder
+            )
+        except:
+            response = JsonResponse({"message": "Could not load list of Salespeople"})
+            response.status_code = 400
+            return response
     else:
         try:
             content = json.loads(request.body)
@@ -59,18 +64,31 @@ def api_list_salespeople(request):
 
 @require_http_methods(["DELETE"])
 def api_delete_salespeople(request, pk):
-    count, _ = Salesperson.objects.filter(id=pk).delete()
-    return JsonResponse({"deleted": count > 0})
+    try:
+        Salesperson.objects.get(id=pk).delete()
+        response = JsonResponse({"message": "Salesperson got deleted"})
+        response.status_code = 200
+        return response
+    except Salesperson.DoesNotExist:
+            response = JsonResponse({"message": "No Salesperson to delete"})
+            response.status_code = 400
+            return response
+
 
 
 @require_http_methods(["GET", "POST"])
 def api_list_customers(request):
     if request.method == "GET":
-        customers = Customer.objects.all()
-        return JsonResponse(
-            {"customers": customers},
-            encoder=CustomerListEncoder
-        )
+        try:
+            customers = Customer.objects.all()
+            return JsonResponse(
+                {"customers": customers},
+                encoder=CustomerListEncoder
+            )
+        except:
+            response = JsonResponse({"message": "Could not load list of Customers"})
+            response.status_code = 400
+            return response
     else:
         try:
             content = json.loads(request.body)
@@ -87,41 +105,53 @@ def api_list_customers(request):
 
 @require_http_methods(["DELETE"])
 def api_delete_customer(request, pk):
-    count, _ = Customer.objects.filter(id=pk).delete()
-    return JsonResponse({"deleted": count > 0})
+    try:
+        Customer.objects.get(id=pk).delete()
+        return JsonResponse({"message": "Customer got deleted"})
+
+    except Customer.DoesNotExist:
+            response = JsonResponse({"message": "Customer does not exist"})
+            response.status_code = 400
+            return response
 
 
 @require_http_methods(["GET", "POST"])
 def api_list_sales(request):
     if request.method == "GET":
-        sales = Sale.objects.all()
-        return JsonResponse(
-            {"sales": sales},
-            encoder=SaleDetailEncoder
+        try:
+            sales = Sale.objects.all()
+            return JsonResponse(
+                {"sales": sales},
+                encoder=SaleDetailEncoder
         )
+        except:
+            response = JsonResponse({"message": "Could not load list of Sales"})
+            response.status_code = 400
+            return response
     else:
         content = json.loads(request.body)
         try:
             automobile = AutomobileVO.objects.get(vin=content["automobile"])
             content["automobile"] = automobile
         except AutomobileVO.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid automobile vin"}
-            )
+            response = JsonResponse({"message": "Invalid automobile vin"})
+            response.status_code = 400
+            return response
         try:
             salesperson = Salesperson.objects.get(employee_id=content["salesperson"])
             content["salesperson"] = salesperson
         except Salesperson.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid salesperson"}
-            )
+            response = JsonResponse({"message": "Invalid salesperson"})
+            response.status_code = 400
+            return response
         try:
             customer = Customer.objects.get(id=content["customer"])
             content["customer"] = customer
         except Customer.DoesNotExist:
-            return JsonResponse(
-                {"message": "Invalid customer"}
-            )
+            response = JsonResponse({"message": "Invalid customer"})
+            response.status_code = 400
+            return response
+
         try:
             sale = Sale.objects.create(**content)
             return JsonResponse({
@@ -131,7 +161,7 @@ def api_list_sales(request):
             },
             )
         except:
-            response = JsonResponse({"message": "Could not create the a Sale"})
+            response = JsonResponse({"message": "Could not create a Sale"})
             response.status_code = 400
             return response
 
