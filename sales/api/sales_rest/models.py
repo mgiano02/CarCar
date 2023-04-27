@@ -14,6 +14,9 @@ class Customer(models.Model):
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=200)
 
+    def __str__(self):
+        return self.vin
+
 class Sale(models.Model):
     automobile = models.ForeignKey(
         AutomobileVO,
