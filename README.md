@@ -34,7 +34,7 @@ Appointments can be updated to change the status field in the model based on the
 ## Sales microservice
 
 * In the Sales microservice exist 4 Models: Salesperson, Customer, Sale and AutomobileVO (You can see it in the Project Diagram)
-* The value object "AutomobileVO" is getting its data, with the help of a poller, from the inventory microservice data. It gets updated every 60 seconds and has the field "vin".
+* The value object "AutomobileVO" is getting its data, with the help of a poller, from the inventory microservice. It gets updated every 60 seconds and has the field "vin".
 * Salesperson has the fields: "first_name", "last_name" and "employee_id"
 * Customer has the fields "first_name", "last_name", "address" and "phone_number"
 * Sale has three Foreign keys, it references salesperson, customer and AutomobileVO. it has another field "price".
@@ -46,8 +46,8 @@ Here are step by step instructions to run this project:
 1. clone this Repository to the local machine \
 Run the following commands in the project directory:
 2. docker volume create beta-data
-2. docker compose-build
-3. docker compose-up
+2. docker-compose build
+3. docker-compose up
 (If on mac, safely ignore the warning about an environment variable)
 4. Check if all containers are running
 5. In your browser go to http://localhost:3000/
