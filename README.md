@@ -38,7 +38,7 @@ Diagram of the different services and how they interact with each other. (Front 
 
 - For each of the services, add the documentation describing how to interact with each endpoint across the various HTTP methods implemented. Include the information that is needed for a request and where it needs to be included in the request(ie. header, path parameter, request body). Include the information that is returned from the server in the response. Insomnia can be very helpful in helping you put together this information
 
-Manufacturers
+### Manufacturers
 
 Endpoint: List manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
@@ -50,125 +50,211 @@ What is necessary: Just the URL and a GET request \
 ![Alt text](list-manufacturers.png)
 </details>
 </p>
-
+/
+/
 
 Endpoint: Create manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
 Description: Create a new manufacturer \
 What is necessary: JSON body with field "name", URL with the POST request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](create-manufacturer.png)
-
+</details>
+</p>
+\
+\
 
 Endpoint: Get a manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Show a specific manufacturer \
 What is necessary: Path parameter as an id, URL with a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](manufacturer-details.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Update manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Update a specific manufacturer \
 What is necessary: Path parameter as an id, JSON body with field "name", URL with a PUT request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](update-manufacturer.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Delete manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: delete a specific manufacturer \
 What is necessary: Path parameter as an id, URL with a DELETE request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](delete-manufacturer.png)
+</details>
+</p>
+\
+\
 
 
-Vehicle Models
+### Vehicle Models
 
 Endpoint: List models \
 Url: http://localhost:8100/api/models/ \
 Description: show a list of all models \
 What is necessary: Just the URL and a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](list-models.png)
+</details>
+</p>
+\
+\
+
 
 
 Endpoint: Create model \
 Url: http://localhost:8100/api/models/ \
 Description: Create a new model \
 What is necessary: JSON body with field "name", "picture_url", "manufacturer_id". URL with the POST request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](create-model.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Get a model \
 Url: http://localhost:8100/api/models/:id \
 Description: Show a specific model \
 What is necessary: Path parameter as an id, URL with a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](model-details.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Update model \
 Url: http://localhost:8100/api/models/:id \
 Description: Update a specific model \
 What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "name", "picture_url", "manufacturer_id". URL with a PUT request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](update-models.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Delete model \
 Url: http://localhost:8100/api/models/:id \
 Description: delete a specific model \
 What is necessary: Path parameter as an id, URL with a DELETE request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](delete-models.png)
+</details>
+</p>
+\
+\
 
 
-Automobiles
+### Automobiles
 
 Endpoint: List automobiles \
 Url: http://localhost:8100/api/automobiles/ \
 Description: show a list of all automobiles \
 What is necessary: Just the URL and a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](list-automobiles.png)
+</details>
+</p>
+\
+\
+
 
 
 Endpoint: Create automobile \
 Url: http://localhost:8100/api/automobiles/ \
 Description: Create a new automobile \
 What is necessary: JSON body with field "color", "year", "vin", "sold", and "model". URL with the POST request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](create-automobiles.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Get a automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: Show a specific automobile \
 What is necessary: Path parameter as an id, URL with a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](automobile-details.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Update automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: Update a specific automobile \
 What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](update-automobiles.png)
+</details>
+</p>
+\
+\
 
 
 Endpoint: Delete automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: delete a specific automobile \
 What is necessary: Path parameter as an id, URL with a DELETE request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](delete-automobile.png)
+</details>
+</p>
+\
+\
 
 
-Technicians
+### Technicians
 
 Endpoint: List technicians \
 Url: http://localhost:8080/api/technicians/ \
@@ -194,7 +280,7 @@ Example: \
 
 
 
-Appointments
+### Appointments
 
 Endpoint: List appointments \
 Url: http://localhost:8080/api/appointments/ \
