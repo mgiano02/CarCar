@@ -36,8 +36,6 @@ Diagram of the different services and how they interact with each other. (Front 
 
 ## API Documentation
 
-- For each of the services, add the documentation describing how to interact with each endpoint across the various HTTP methods implemented. Include the information that is needed for a request and where it needs to be included in the request(ie. header, path parameter, request body). Include the information that is returned from the server in the response. Insomnia can be very helpful in helping you put together this information
-
 ### Manufacturers
 
 Endpoint: List manufacturers \
@@ -155,8 +153,7 @@ What is necessary: Path parameter as an id, JSON body with at least one of the f
 ![Alt text](update-models.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Delete model \
