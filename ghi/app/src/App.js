@@ -45,7 +45,6 @@ function App() {
           <Route path="appointments/new" element={<ServiceAppointmentCreate />} />
           <Route path="appointments" element={<ServiceAppointmentList />} />
           <Route path="appointments/history" element={<ServiceHistory />} />
-
         </Routes>
       </div>
     </BrowserRouter>

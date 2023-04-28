@@ -36,7 +36,7 @@ function SaleHistory(props) {
         <>
         <h1>Salesperson History</h1>
         <div>
-            <select onChange={handleSalespersonChange} required name="salespeople" id="salespeople">
+            <select onChange={handleSalespersonChange} required name="salespeople" className='mt-2' id="salespeople">
                 <option>Choose a salesperson</option>
                 {salespeople.map(person => {
                     return (

@@ -45,7 +45,7 @@ class AppointmentListEncoder(ModelEncoder):
     ]
 
     def get_extra_data(self, o):
-        return {"technician": o.technician.employee_id}
+        return {"technician": o.technician.first_name + " " + o.technician.last_name}
 
 class AppointmentDetailEncoder(ModelEncoder):
     model = Appointment
@@ -108,7 +108,7 @@ def api_list_appointments(request):
         content = json.loads(request.body)
 
         try:
-            technician = Technician.objects.get(employee_id=content["technician"])
+            technician = Technician.objects.get(first_name=content["technician"])
             content["technician"] = technician
             appointment = Appointment.objects.create(**content)
             return JsonResponse(
