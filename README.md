@@ -382,7 +382,7 @@ What is necessary: JSON body with field "first_name", "last_name", "address" and
 Endpoint: Delete customer \
 Url: http://localhost:8090/api/salespeople/:id \
 Description: delete a specific salesperson \
-What is necessary: Path parameter as a customer id, URL with a DELETE request \
+What is necessary: Path parameter as a customer id, URL with a DELETE request
 
 <p>
 <details>
@@ -397,7 +397,7 @@ What is necessary: Path parameter as a customer id, URL with a DELETE request \
 Endpoint: List sales \
 Url: http://localhost:8090/api/sales/ \
 Description: show a list of all sales \
-What is necessary: Just the URL and a GET request \
+What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -411,7 +411,7 @@ What is necessary: Just the URL and a GET request \
 Endpoint: Create sale \
 Url: http://localhost:8090/api/sales/\
 Description: Create a new sale \
-What is necessary: JSON body with fields "automobile", "customer", "salesperson", "price". URL with the POST request \
+What is necessary: JSON body with fields "automobile", "customer", "salesperson", "price". URL with the POST request
 
 <p>
 <details>
@@ -425,7 +425,7 @@ What is necessary: JSON body with fields "automobile", "customer", "salesperson"
 Endpoint: Delete sale \
 Url: http://localhost:8090/api/sales/:id \
 Description: delete a specific sale \
-What is necessary: Path parameter as a customer sale id, URL with a DELETE request \
+What is necessary: Path parameter as a customer sale id, URL with a DELETE request
 
 <p>
 <details>
