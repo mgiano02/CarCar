@@ -50,8 +50,8 @@ What is necessary: Just the URL and a GET request \
 ![Alt text](list-manufacturers.png)
 </details>
 </p>
-/
-/
+<br>
+<br>
 
 Endpoint: Create manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
