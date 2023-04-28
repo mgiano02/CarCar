@@ -309,7 +309,8 @@ Example: \
 Endpoint: List salespeople\
 Url: http://localhost:8090/api/salespeople/ \
 Description: show a list of all salespeople \
-What is necessary: Just the URL and a GET request \
+What is necessary: Just the URL and a GET request\
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -324,6 +325,7 @@ Endpoint: Create salesperson \
 Url: http://localhost:8090/api/salespeople/\
 Description: Create a new salesperson \
 What is necessary: JSON body with field "first_name", "last_name" and "employee_id". URL with the POST request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -337,6 +339,7 @@ Endpoint: Delete salesperson \
 Url: http://localhost:8090/api/salespeople/:id \
 Description: delete a specific salesperson \
 What is necessary: Path parameter as a salesperson id, URL with a DELETE request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -351,6 +354,7 @@ Endpoint: List customers \
 Url: http://localhost:8090/api/salespeople/ \
 Description: show a list of all salespeople \
 What is necessary: Just the URL and a GET request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -365,6 +369,7 @@ Endpoint: Create customer \
 Url: http://localhost:8090/api/salespeople/\
 Description: Create a new salesperson \
 What is necessary: JSON body with field "first_name", "last_name", "address" and "phone_number". URL with the POST request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -378,6 +383,7 @@ Endpoint: Delete customer \
 Url: http://localhost:8090/api/salespeople/:id \
 Description: delete a specific salesperson \
 What is necessary: Path parameter as a customer id, URL with a DELETE request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -406,6 +412,7 @@ Endpoint: Create sale \
 Url: http://localhost:8090/api/sales/\
 Description: Create a new sale \
 What is necessary: JSON body with fields "automobile", "customer", "salesperson", "price". URL with the POST request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -419,6 +426,7 @@ Endpoint: Delete sale \
 Url: http://localhost:8090/api/sales/:id \
 Description: delete a specific sale \
 What is necessary: Path parameter as a customer sale id, URL with a DELETE request \
+
 <p>
 <details>
 <summary>Click for example image</summary>
