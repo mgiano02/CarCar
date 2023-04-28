@@ -1,15 +1,15 @@
 # CarCar
 
-Project Summary:
+**Project Summary:** \
 The CarCar application is used for auto dealerships to manage both customer experience and employee interactions.
 Customers are able to view the automobiles being sold in the dealership and can also make service appointments with a technician. Employees can be categorized as salesmen and technicians. Salesmen can sell automobiles from the dealership to customers and technicians can service automobiles through service appointments.
 
 
-Table of Contents:
-[Service Microservice](#service-microservice)
-[Sales Microservice](#sales-microservice)
-[How to Run this Project](#how-to-run-this-project)
-[Project Diagram](#project-diagram)
+**Table of Contents:** \
+[Service Microservice](#service-microservice) \
+[Sales Microservice](#sales-microservice) \
+[How to Run this Project](#how-to-run-this-project) \
+[Project Diagram](#project-diagram) \
 [API Documentation](#api-documentation)
 * [Manufacturers](#manufacturers)
 * [Vehicle Models](#vehicle-models)
@@ -21,7 +21,7 @@ Table of Contents:
 * [Sales](#sales)
 
 
-Team:
+**Team:**
 
 * Michael Gianoulakis - Service - branch-1
 * Sina Klughardt - Sales - branch-2
