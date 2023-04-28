@@ -171,15 +171,15 @@ Url: http://localhost:8080/api/technicians/ \
 Description: show a list of all technicians \
 What is necessary: Just the URL and a GET request \
 Example: \
-
+![Alt text](list-technicians.png)
 
 
 Endpoint: Create technician \
 Url: http://localhost:8080/api/technicians/ \
 Description: Create a new technician \
-What is necessary: JSON body with field "color", "year", "vin", "sold", and "model". URL with the POST request \
+What is necessary: JSON body with field "first_name", "last_name", and "employee_id". URL with the POST request \
 Example: \
-
+![Alt text](create-technician.png)
 
 
 Endpoint: Delete technician \
@@ -187,7 +187,7 @@ Url: http://localhost:8080/api/technicians/:id \
 Description: delete a specific technician \
 What is necessary: Path parameter as an id, URL with a DELETE request \
 Example: \
-
+![Alt text](delete-technician.png)
 
 
 Appointments
@@ -197,27 +197,36 @@ Url: http://localhost:8080/api/appointments/ \
 Description: show a list of all appointments \
 What is necessary: Just the URL and a GET request \
 Example: \
-
+![Alt text](list-appointments.png)
 
 
 Endpoint: Create appointment \
 Url: http://localhost:8080/api/appointments/ \
 Description: Create a new appointment \
-What is necessary: JSON body with field "color", "year", "vin", "sold", and "model". URL with the POST request \
+What is necessary: JSON body with field "date_time", "reason", "status", "vin", "customer", and "technician". URL with the POST request \
 Example: \
+![Alt text](create-appointment.png)
 
+
+Endpoint: Delete appointment \
+Url: http://localhost:8100/api/appointments/:id/ \
+Description: delete a specific appointment \
+What is necessary: Path parameter as an id, URL with a DELETE request \
+Example: \
+![Alt text](delete-appointment.png)
 
 
 Endpoint: Update appointment \
 Url: http://localhost:8100/api/appointments/:id/cancel \
 Description: Update a specific appointment to the cancel status \
-What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request \
+What is necessary: Path parameter as an id, URL with a PUT request \
 Example: \
-
+![Alt text](update-appointment-cancel.png)
 
 
 Endpoint: Update automobile \
 Url: http://localhost:8080/api/appointments/:id/finish \
 Description: Update a specific appointment to the finish status \
-What is necessary: Path parameter as an id, URL with a DELETE request \
+What is necessary: Path parameter as an id, URL with a PUT request \
 Example: \
+![Alt text](update-appointment-finish.png)
