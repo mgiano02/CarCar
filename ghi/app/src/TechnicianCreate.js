@@ -18,6 +18,7 @@ function TechnicianCreate() {
     }, []);
 
     const [firstName, setFirstName] = useState("");
+    const [status, setStatus] = useState("");
     const handleFirstNameChange = (event) => {
         const value = event.target.value;
         setFirstName(value);
@@ -58,6 +59,20 @@ function TechnicianCreate() {
             setFirstName("");
             setLastName("");
             setEmployeeId("");
+            setStatus("success");
+        } else {
+            setStatus("error")
+        }
+    }
+    function isStatus() {
+        if (status === 'success') {
+            return (
+                <p className="alert alert-success">Technician successfully created</p>
+            )
+        } else if (status === 'error') {
+            return (
+                <p className="alert alert-danger">Can't create Technician</p>
+            )
         }
     }
 
@@ -68,6 +83,7 @@ function TechnicianCreate() {
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Add a Technician</h1>
+            {isStatus()}
             <form onSubmit={handleSubmit} id="create-technician-form">
                 <div className="form-floating mb-3">
                 <input onChange={handleFirstNameChange} placeholder="First Name" required value={firstName} type="text" name="first_name" id="first_name" className="form-control"></input>

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 function AutomobileCreate() {
 
     const [models, setModels] = useState([]);
+    const [status, setStatus] = useState("")
 
     const [color, setColor] = useState("");
     const handleColorChange = (event) => {
@@ -40,6 +41,17 @@ function AutomobileCreate() {
             setModels(data.models)
         }
     }
+    function isStatus() {
+      if (status === 'success') {
+          return (
+              <p className="alert alert-success">Automobile successfully created</p>
+          )
+      } else if (status === 'error') {
+          return (
+              <p className="alert alert-danger">Can't create automobile</p>
+          )
+      }
+  }
 
     useEffect(() => {
         fetchData();
@@ -47,7 +59,6 @@ function AutomobileCreate() {
 
     const handleSubmit = async(event) => {
         event.preventDefault();
-
         const data = {}
 
         data.color = color;
@@ -73,6 +84,9 @@ function AutomobileCreate() {
             setVin("");
             // setSold("");
             setModel("");
+            setStatus("success")
+        } else {
+          setStatus("error")
         }
     }
 
@@ -81,6 +95,7 @@ function AutomobileCreate() {
           <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
               <h1>Create an Automobile</h1>
+              {isStatus()}
               <form onSubmit={handleSubmit} id="create-form">
                 <div className="form-floating mb-3">
                   <input onChange={handleColorChange} placeholder="Color" required value={color} type="text" name="color" id="color" className="form-control"></input>
