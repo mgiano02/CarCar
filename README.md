@@ -44,8 +44,12 @@ Endpoint: List manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
 Description: show a list of all manufacturers \
 What is necessary: Just the URL and a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](list-manufacturers.png)
+</details>
+</p>
 
 
 Endpoint: Create manufacturers \
