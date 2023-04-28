@@ -8,7 +8,6 @@ function CustomerList(props) {
         if (response.ok) {
             const data = await response.json()
             setCustomers(data.customers)
-            console.log(data)
         }
     }
 

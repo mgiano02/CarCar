@@ -60,8 +60,6 @@ Diagram of the different services and how they interact with each other. (Front 
 
 ## API Documentation
 
-<img src="example-images/list-manufacturers" width="48">
-
 ### Manufacturers
 
 Endpoint: List manufacturers \

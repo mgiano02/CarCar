@@ -14,7 +14,6 @@ function ServiceAppointmentList() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
             setAppointments(data.appointments)
         }
     }
@@ -38,7 +37,6 @@ function ServiceAppointmentList() {
             //     )
             // }
 
-            console.log(data.autos);
             setAutomobiles(data.autos);
         }
     }
@@ -67,7 +65,6 @@ function ServiceAppointmentList() {
         const response = await fetch(cancelUrl, fetchConfig);
         if (response.ok) {
             const cancelAppointment = await response.json();
-            console.log(cancelAppointment);
             setStatus(cancelAppointment.status);
         }
     }
@@ -90,7 +87,6 @@ function ServiceAppointmentList() {
         const response = await fetch(finishUrl, fetchConfig);
         if (response.ok) {
             const finishAppointment = await response.json();
-            console.log(finishAppointment);
             setStatus(finishAppointment.status);
         }
     }
@@ -102,7 +98,6 @@ function ServiceAppointmentList() {
         for (let auto of automobiles) {
             // if vin from appointment list is the same as the vin in the inventory list
             if (vin == auto.vin) {
-                console.log("test");
                 isVip = "Yes";
             }
             }
