@@ -1,5 +1,26 @@
 # CarCar
 
+Project Summary:
+The CarCar application is used for auto dealerships to manage both customer experience and employee interactions.
+Customers are able to view the automobiles being sold in the dealership and can also make service appointments with a technician. Employees can be categorized as salesmen and technicians. Salesmen can sell automobiles from the dealership to customers and technicians can service automobiles through service appointments.
+
+
+Table of Contents:
+[Service Microservice](#service-microservice)
+[Sales Microservice](#sales-microservice)
+[How to Run this Project](#how-to-run-this-project)
+[Project Diagram](#project-diagram)
+[API Documentation](#api-documentation)
+* [Manufacturers](#manufacturers)
+* [Vehicle Models](#vehicle-models)
+* [Automobiles](#automobiles)
+* [Technicians](#technicians)
+* [Appointments](#appointments)
+* [Salespeople](#salespeople)
+* [Customers](#customers)
+* [Sales](#sales)
+
+
 Team:
 
 * Michael Gianoulakis - Service - branch-1
@@ -9,35 +30,39 @@ Team:
 
 The service microservice has three models including: Technician, Appointment, and AutomobileVO.
 
-The AutomobileVO model is a value object used to access the automobile model from the inventory microservice through a polling process. When the automobile data is obtained, it can then be referenced for use in the service microservice.
-It has a vin and import_href field obtained from the inventory to use when showing information for appointments.
+The **AutomobileVO** model is a value object used to access the automobile model from the inventory microservice through a polling process. When the automobile data is obtained, it can then be referenced for use in the service microservice.
+* It has a vin and import_href field obtained from the inventory to use when showing information for appointments.
 
-The Technician model has a first_name, last_name, and an employee_id field.
-The first_name and last_name are used for a technician's full name and the employee_id is used to reference a specific technician for the purpose of scheduling service appointments.
-Technicians can then be created in the database using a POST request: (http://localhost:8080/api/technicians/).
-They can also can also be listed out to display using a GET request: (http://localhost:8080/api/technicians/). This is used for obtaining a list of all technicians currently in the database.
-Technicians can also be deleted from the database using a DELETE request: (http://localhost:8080/api/technicians/). This will also remove them from lists mentioned in the previous GET request.
 
-The Appointment model has fields that include date_time, reason, status, vin, customer, and technician.
-The date_time field is used to schedule service appointments at specific times. When displaying appointments on the frontend, this splits the data into date and time separately.
-The reason field is used to explain why a service appointment is needed for an automobile. Examples might include an oil change, battery replacement, or general maintenance.
-The status describes if the appointment is pending (default after appointment creation), cancelled, or finished.
-The automobiles vin is an implemented to determine which cars are schedule for service appointments. Vins can be cross-referenced with the vins from automobiles sold from the dealership. On the frontend, this is used to mark customers as VIP.
-A customer field is used to match a customer name to an appointment.
-A technician field is used to assign a technician from the database (using the Technician foreign key) to an appointment.
-An appointment list can be obtained through GET request: (http://localhost:8080/api/appointments/). This is used to list all all appointments and also show the service history.
-An appointment can be created by using a POST request: (http://localhost:8080/api/appointments/). This will add a new appointment for an automobile to be serviced.
-Appointments can be removed from the database with the DELETE request: (http://localhost:8080/api/appointments/). This will remove the specified service appointment from the the list of appointments mentioned in the previous GET request.
-Appointments can be updated to change the status field in the model based on the PUT request used: (http://localhost:8080/api/appointments/1/cancel) and (http://localhost:8080/api/appointments/1/finish). These requests will update the status to cancel or finish respectively.
+The **Technician** model has a first_name, last_name, and an employee_id field.
+* The first_name and last_name are used for a technician's full name and the employee_id is used to reference a specific technician for the purpose of scheduling service appointments.
+
+* Technicians can then be created in the database using a POST request: (http://localhost:8080/api/technicians/).
+* They can also can also be listed out to display using a GET request: (http://localhost:8080/api/technicians/). This is used for obtaining a list of all technicians currently in the database.
+* Technicians can also be deleted from the database using a DELETE request: (http://localhost:8080/api/technicians/). This will also remove them from lists mentioned in the previous GET request.
+
+
+The **Appointment** model has fields that include date_time, reason, status, vin, customer, and technician.
+* The date_time field is used to schedule service appointments at specific times. When displaying appointments on the frontend, this splits the data into date and time separately.
+* The reason field is used to explain why a service appointment is needed for an automobile. Examples might include an oil change, battery replacement, or general maintenance.
+* The status describes if the appointment is pending (default after appointment creation), cancelled, or finished.
+* The automobiles vin is an implemented to determine which cars are schedule for service appointments. Vins can be cross-referenced with the vins from automobiles sold from the dealership. On the frontend, this is used to mark customers as VIP.
+* A customer field is used to match a customer name to an appointment.
+* A technician field is used to assign a technician from the database (using the Technician foreign key) to an appointment.
+
+* An appointment list can be obtained through GET request: (http://localhost:8080/api/appointments/). This is used to list all all appointments and also show the service history.
+* An appointment can be created by using a POST request: (http://localhost:8080/api/appointments/). This will add a new appointment for an automobile to be serviced.
+* Appointments can be removed from the database with the DELETE request: (http://localhost:8080/api/appointments/). This will remove the specified service appointment from the the list of appointments mentioned in the previous GET request.
+* Appointments can be updated to change the status field in the model based on the PUT request used: (http://localhost:8080/api/appointments/1/cancel) and (http://localhost:8080/api/appointments/1/finish). These requests will update the status to cancel or finish respectively.
 
 
 ## Sales microservice
 
 * In the Sales microservice exist 4 Models: Salesperson, Customer, Sale and AutomobileVO (You can see it in the Project Diagram)
-* The value object "AutomobileVO" is getting its data, with the help of a poller, from the inventory microservice data. It gets updated every 60 seconds and has the field "vin".
-* Salesperson has the fields: "first_name", "last_name" and "employee_id"
-* Customer has the fields "first_name", "last_name", "address" and "phone_number"
-* Sale has three Foreign keys, it references salesperson, customer and AutomobileVO. it has another field "price".
+* The **AutomobileVO** model represents a value object and is getting its data, with the help of a poller, from the inventory microservice data. It gets updated every 60 seconds and has the field "vin".
+* **Salesperson** has the fields: "first_name", "last_name" and "employee_id"
+* **Customer** has the fields "first_name", "last_name", "address" and "phone_number"
+* **Sale** has three Foreign keys, it references salesperson, customer and AutomobileVO. it has another field "price".
 
 
 ## How to Run this Project

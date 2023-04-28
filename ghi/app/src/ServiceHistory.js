@@ -5,6 +5,7 @@ function ServiceHistory() {
     const [appointments, setAppointments] = useState([]);
     const [automobiles, setAutomobiles] = useState([]);
 
+    // Get appointment data and set/filter state based on data
     const fetchData = async () => {
         const url = "http://localhost:8080/api/appointments/";
 
@@ -17,6 +18,7 @@ function ServiceHistory() {
         }
     }
 
+        // Get automobile data and set state based on data
     const fetchAutomobileData = async () => {
         const url = "http://localhost:8100/api/automobiles/";
 
@@ -24,16 +26,6 @@ function ServiceHistory() {
 
         if (response.ok) {
             const data = await response.json();
-
-            // if (data.autos.sold == true) {
-            //     return (
-            //         <td>Yes</td>
-            //     )
-            // } else {
-            //     return (
-            //         <td>No</td>
-            //     )
-            // }
             setAutomobiles(data.autos);
         }
     }
@@ -50,12 +42,13 @@ function ServiceHistory() {
     }
 
     const [filteredAppointments, setfilteredAppointments] = useState([]);
-
+    // Filter appointments after clicking
     const handleClick = () => {
         const filterAppointments = appointments.filter((appointment) => appointment.vin.toLowerCase().includes(searchVin))
         setfilteredAppointments(filterAppointments)
     }
 
+    // Determines if customer is vip
     function isVip(vin) {
         // Loops through list of automobiles in inventory
         let isVip = "No";
@@ -69,15 +62,8 @@ function ServiceHistory() {
         return <td>{isVip}</td>
     }
 
-
-    // function filterVin() {
-    //     setAppointments(appointments.filter((appointment) => appointment.vin.toLowerCase().includes(searchVin)))
-    // }
-
     // Update line 57 below to this and remove the onclick to auto update page without buttom submission.
     // {appointments.filter((appointment) => appointment.vin.toLowerCase().includes(searchVin)).map(appointment => {
-
-    // Add another button with an onclick to call fetchData() again to display all appointment by resetting the state.
 
     return (
         <>
@@ -100,7 +86,7 @@ function ServiceHistory() {
                 <tbody>
                 {filteredAppointments.map(appointment => {
                     return (
-                        <tr key={appointment.vin}>
+                        <tr key={appointment.id}>
                             <td>{appointment.vin.toUpperCase()}</td>
                             {isVip(appointment.vin)}
                             <td>{appointment.customer}</td>

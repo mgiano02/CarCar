@@ -22,11 +22,6 @@ function ServiceAppointmentCreate() {
         const value = event.target.value;
         setDate(value);
     }
-    // const [time, setTime] = useState("");
-    // const handleTimeChange = (event) => {
-    //     const value = event.target.value;
-    //     setTime(value);
-    // }
     const [technician, setTechnician] = useState("");
     const handleTechnicianChange = (event) => {
         const value = event.target.value;
@@ -37,7 +32,7 @@ function ServiceAppointmentCreate() {
         const value = event.target.value;
         setReason(value);
     }
-
+    // Get technician data and set state based on data
     const fetchData = async () => {
         const url = "http://localhost:8080/api/technicians/";
 
@@ -48,7 +43,7 @@ function ServiceAppointmentCreate() {
             setTechnicians(data.technicians)
         }
     }
-
+    // Get customer data and set state based on data
     const fetchCustomerData = async () => {
         const url = "http://localhost:8090/api/customers/";
 
@@ -65,6 +60,7 @@ function ServiceAppointmentCreate() {
         fetchCustomerData();
     }, []);
 
+    // Submits appointment form
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -73,7 +69,6 @@ function ServiceAppointmentCreate() {
         data.vin = vin;
         data.customer = customer;
         data.date_time = date;
-        // data.date_time = time;
         data.status = "PENDING";
         data.technician = technician;
         data.reason = reason;
@@ -100,6 +95,7 @@ function ServiceAppointmentCreate() {
             setStatus("error")
         }
     }
+    // Displays message based on if appointment was successfully created or not
     function isStatus() {
         if (status === 'success') {
             return (
@@ -107,7 +103,7 @@ function ServiceAppointmentCreate() {
             )
         } else if (status === 'error') {
             return (
-                <p className="alert alert-danger">Can't create Service appointment</p>
+                <p className="alert alert-danger">Can't create service appointment</p>
             )
         }
     }
