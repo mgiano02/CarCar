@@ -43,7 +43,7 @@ Appointments can be updated to change the status field in the model based on the
 ## How to Run this Project
 
 Here are step by step instructions to run this project:
-1. clone this Repository to the local machine /
+1. clone this Repository to the local machine \
 Run the following commands in the project directory:
 2. docker volume create beta-data
 2. docker compose-build
@@ -56,9 +56,11 @@ Run the following commands in the project directory:
 
 Diagram of the different services and how they interact with each other. (Front and backend):
 
-![Alt text](Project-diagram.png)
+![Alt text](example-images/Project-diagram.png)
 
 ## API Documentation
+
+<img src="example-images/list-manufacturers" width="48">
 
 ### Manufacturers
 
