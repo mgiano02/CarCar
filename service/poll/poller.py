@@ -19,15 +19,12 @@ def poll():
         try:
             # Write your polling logic, here
             response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles")
-            print(response)
             content = json.loads(response.content)
-            print(content)
             for automobile in content["automobiles"]:
                 AutomobileVO.objects.update_or_create(
                     import_href=automobile["href"],
                     defaults={"vin": automobile["vin"]},
                 )
-                print("test in for loop")
         except Exception as e:
             print(e, file=sys.stderr)
         time.sleep(60)

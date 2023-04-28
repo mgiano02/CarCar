@@ -9,7 +9,7 @@ Team:
 
 The service microservice has three models including: Technician, Appointment, and AutomobileVO.
 
-The AutomobileVO model is used to access the automobile model from the inventory microservice through a polling process. When the automobile data is obtained, it can then be referenced for use in the service microservice.
+The AutomobileVO model is a value object used to access the automobile model from the inventory microservice through a polling process. When the automobile data is obtained, it can then be referenced for use in the service microservice.
 It has a vin and import_href field obtained from the inventory to use when showing information for appointments.
 
 The Technician model has a first_name, last_name, and an employee_id field.
@@ -89,7 +89,7 @@ What is necessary: JSON body with field "name", URL with the POST request
 Endpoint: Get a manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Show a specific manufacturer \
-What is necessary: Path parameter as an id, URL with a GET request
+What is necessary: Path parameter as a manufacturer id, URL with a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -102,7 +102,7 @@ What is necessary: Path parameter as an id, URL with a GET request
 Endpoint: Update manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Update a specific manufacturer \
-What is necessary: Path parameter as an id, JSON body with field "name", URL with a PUT request
+What is necessary: Path parameter as a manufacturer id, JSON body with field "name", URL with a PUT request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -115,7 +115,7 @@ What is necessary: Path parameter as an id, JSON body with field "name", URL wit
 Endpoint: Delete manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: delete a specific manufacturer \
-What is necessary: Path parameter as an id, URL with a DELETE request
+What is necessary: Path parameter as a manufacturer id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -157,7 +157,7 @@ What is necessary: JSON body with field "name", "picture_url", "manufacturer_id"
 Endpoint: Get a model \
 Url: http://localhost:8100/api/models/:id \
 Description: Show a specific model \
-What is necessary: Path parameter as an id, URL with a GET request
+What is necessary: Path parameter as a model id, URL with a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -170,7 +170,7 @@ What is necessary: Path parameter as an id, URL with a GET request
 Endpoint: Update model \
 Url: http://localhost:8100/api/models/:id \
 Description: Update a specific model \
-What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "name", "picture_url", "manufacturer_id". URL with a PUT request
+What is necessary: Path parameter as a model id, JSON body with at least one of the fields from the following: "name", "picture_url", "manufacturer_id". URL with a PUT request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -183,7 +183,7 @@ What is necessary: Path parameter as an id, JSON body with at least one of the f
 Endpoint: Delete model \
 Url: http://localhost:8100/api/models/:id \
 Description: delete a specific model \
-What is necessary: Path parameter as an id, URL with a DELETE request
+What is necessary: Path parameter as a model id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -225,7 +225,7 @@ What is necessary: JSON body with field "color", "year", "vin", "sold", and "mod
 Endpoint: Get a automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: Show a specific automobile \
-What is necessary: Path parameter as an id, URL with a GET request \
+What is necessary: Path parameter as an automobile id, URL with a GET request \
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -238,7 +238,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 Endpoint: Update automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: Update a specific automobile \
-What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request
+What is necessary: Path parameter as an automobile id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -251,7 +251,7 @@ What is necessary: Path parameter as an id, JSON body with at least one of the f
 Endpoint: Delete automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: delete a specific automobile \
-What is necessary: Path parameter as an id, URL with a DELETE request
+What is necessary: Path parameter as an automobile id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -267,24 +267,39 @@ Endpoint: List technicians \
 Url: http://localhost:8080/api/technicians/ \
 Description: show a list of all technicians \
 What is necessary: Just the URL and a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](list-technicians.png)
+</details>
+</p>
+<br>
 
 
 Endpoint: Create technician \
 Url: http://localhost:8080/api/technicians/ \
 Description: Create a new technician \
 What is necessary: JSON body with field "first_name", "last_name", and "employee_id". URL with the POST request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](create-technician.png)
+</details>
+</p>
+<br>
 
 
 Endpoint: Delete technician \
 Url: http://localhost:8080/api/technicians/:id \
 Description: delete a specific technician \
-What is necessary: Path parameter as an id, URL with a DELETE request \
-Example: \
+What is necessary: Path parameter as a technician id, URL with a DELETE request \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](delete-technician.png)
+</details>
+</p>
+<br>
 
 
 ### Appointments
@@ -293,40 +308,65 @@ Endpoint: List appointments \
 Url: http://localhost:8080/api/appointments/ \
 Description: show a list of all appointments \
 What is necessary: Just the URL and a GET request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](list-appointments.png)
+</details>
+</p>
+<br>
 
 
 Endpoint: Create appointment \
 Url: http://localhost:8080/api/appointments/ \
 Description: Create a new appointment \
 What is necessary: JSON body with field "date_time", "reason", "status", "vin", "customer", and "technician". URL with the POST request \
-Example: \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](create-appointment.png)
+</details>
+</p>
+<br>
 
 
 Endpoint: Delete appointment \
 Url: http://localhost:8100/api/appointments/:id/ \
 Description: delete a specific appointment \
-What is necessary: Path parameter as an id, URL with a DELETE request \
-Example: \
+What is necessary: Path parameter as an appointment id, URL with a DELETE request \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](delete-appointment.png)
+</details>
+</p>
+<br>
 
 
 Endpoint: Update appointment \
 Url: http://localhost:8100/api/appointments/:id/cancel \
 Description: Update a specific appointment to the cancel status \
-What is necessary: Path parameter as an id, URL with a PUT request \
-Example: \
+What is necessary: Path parameter as an appointment id, URL with a PUT request \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](update-appointment-cancel.png)
-
+</details>
+</p>
+<br>
 
 Endpoint: Update automobile \
 Url: http://localhost:8080/api/appointments/:id/finish \
 Description: Update a specific appointment to the finish status \
-What is necessary: Path parameter as an id, URL with a PUT request \
-Example: \
+What is necessary: Path parameter as an appointment id, URL with a PUT request \
+<p>
+<details>
+<summary>Click for example image</summary>
 ![Alt text](update-appointment-finish.png)
+</details>
+</p>
+<br>
+
 
 ### Salespeople
 
