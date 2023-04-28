@@ -303,3 +303,126 @@ Description: Update a specific appointment to the finish status \
 What is necessary: Path parameter as an id, URL with a PUT request \
 Example: \
 ![Alt text](update-appointment-finish.png)
+
+### Salespeople
+
+Endpoint: List salespeople\
+Url: http://localhost:8090/api/salespeople/ \
+Description: show a list of all salespeople \
+What is necessary: Just the URL and a GET request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](list-salespeople.png)
+</details>
+</p>
+<br>
+
+
+
+Endpoint: Create salesperson \
+Url: http://localhost:8090/api/salespeople/\
+Description: Create a new salesperson \
+What is necessary: JSON body with field "first_name", "last_name" and "employee_id". URL with the POST request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](create-salesperson.png)
+</details>
+</p>
+<br>
+
+
+Endpoint: Delete salesperson \
+Url: http://localhost:8090/api/salespeople/:id \
+Description: delete a specific salesperson \
+What is necessary: Path parameter as a salesperson id, URL with a DELETE request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](delete-salesperson.png)
+</details>
+</p>
+<br>
+
+### Customers
+
+Endpoint: List customers \
+Url: http://localhost:8090/api/salespeople/ \
+Description: show a list of all salespeople \
+What is necessary: Just the URL and a GET request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](list-customer.png)
+</details>
+</p>
+<br>
+
+
+
+Endpoint: Create customer \
+Url: http://localhost:8090/api/salespeople/\
+Description: Create a new salesperson \
+What is necessary: JSON body with field "first_name", "last_name", "address" and "phone_number". URL with the POST request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](create-customer.png)
+</details>
+</p>
+<br>
+
+
+Endpoint: Delete customer \
+Url: http://localhost:8090/api/salespeople/:id \
+Description: delete a specific salesperson \
+What is necessary: Path parameter as a customer id, URL with a DELETE request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](delete-customer.png)
+</details>
+</p>
+<br>
+
+### Sales
+
+Endpoint: List sales \
+Url: http://localhost:8090/api/sales/ \
+Description: show a list of all sales \
+What is necessary: Just the URL and a GET request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](list-sales.png)
+</details>
+</p>
+<br>
+
+
+
+Endpoint: Create sale \
+Url: http://localhost:8090/api/sales/\
+Description: Create a new sale \
+What is necessary: JSON body with fields "automobile", "customer", "salesperson", "price". URL with the POST request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](create-sale.png)
+</details>
+</p>
+<br>
+
+
+Endpoint: Delete sale \
+Url: http://localhost:8090/api/sales/:id \
+Description: delete a specific sale \
+What is necessary: Path parameter as a customer sale id, URL with a DELETE request \
+<p>
+<details>
+<summary>Click for example image</summary>
+![Alt text](delete-sale.png)
+</details>
+</p>
+<br>

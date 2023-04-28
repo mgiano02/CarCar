@@ -167,5 +167,10 @@ def api_list_sales(request):
 
 @require_http_methods(["DELETE"])
 def api_delete_sale(request, pk):
-    count, _ = Sale.objects.filter(id=pk).delete()
-    return JsonResponse({"deleted": count > 0})
+    try:
+        Sale.objects.filter(id=pk).delete()
+        return JsonResponse({"message": "Sale got deleted"})
+    except Sale.DoesNotExist:
+            response = JsonResponse({"message": "Sale does not exist"})
+            response.status_code = 400
+            return response
