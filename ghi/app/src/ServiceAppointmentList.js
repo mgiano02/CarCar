@@ -6,7 +6,7 @@ function ServiceAppointmentList() {
     const [automobiles, setAutomobiles] = useState([]);
     const [status, setStatus] = useState("PENDING");
 
-
+    // Get appointment data and set/filter state based on data
     const fetchAppointmentData = async () => {
         const url = "http://localhost:8080/api/appointments/";
 
@@ -18,7 +18,7 @@ function ServiceAppointmentList() {
         }
     }
 
-
+    // Get automobile data and set state based on data
     const fetchAutomobileData = async () => {
         const url = "http://localhost:8100/api/automobiles/";
 
@@ -36,7 +36,7 @@ function ServiceAppointmentList() {
         fetchAutomobileData();
     }, []);
 
-
+    // Update status to "CANCEL"
     const handleCancel = async (id) => {
 
         const data = {};
@@ -61,6 +61,7 @@ function ServiceAppointmentList() {
         }
     }
 
+    // Update status to "FINISHED"
     const handleFinish = async (id) => {
 
         const data = {};
@@ -85,7 +86,7 @@ function ServiceAppointmentList() {
         }
     }
 
-    // console.log("automobiles", automobiles)
+    // Determines if customer is vip
     function isVip(vin) {
         // Loops through list of automobiles in inventory
         let isVip = "No";
@@ -116,7 +117,7 @@ function ServiceAppointmentList() {
             <tbody>
             {appointments.map(appointment => {
                 return (
-                    <tr key={appointment.vin}>
+                    <tr key={appointment.id}>
                         <td>{appointment.vin.toUpperCase()}</td>
                         {isVip(appointment.vin)}
                         <td>{appointment.customer}</td>

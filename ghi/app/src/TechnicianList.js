@@ -4,6 +4,7 @@ function TechnicianList() {
 
     const [technicians, setTechnicians] = useState([]);
 
+    // Get technician data and set state based on data
     const fetchData = async () => {
         const url = "http://localhost:8080/api/technicians/";
 

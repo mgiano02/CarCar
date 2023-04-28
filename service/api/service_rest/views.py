@@ -5,7 +5,7 @@ import json
 from common.json import ModelEncoder
 from .models import Technician, AutomobileVO, Appointment
 
-# Create your views here.
+
 # Used to access automobile property data from automobiles in inventory
 class AutomobileVOEncoder(ModelEncoder):
     model = AutomobileVO
@@ -47,6 +47,7 @@ class AppointmentListEncoder(ModelEncoder):
     def get_extra_data(self, o):
         return {"technician": o.technician.first_name + " " + o.technician.last_name}
 
+# Used to access appointment property details
 class AppointmentDetailEncoder(ModelEncoder):
     model = Appointment
     properties = [
@@ -105,6 +106,7 @@ def api_list_technicians(request):
 
 @require_http_methods(["DELETE"])
 def api_delete_technician(request, pk):
+    # Delete a technician
     if request.method == "DELETE":
         try:
             count, _ = Technician.objects.filter(id=pk).delete()
@@ -132,6 +134,7 @@ def api_list_appointments(request):
             )
             response.status_code = 400
             return response
+    # Create a new appointment
     else:
         try:
             content = json.loads(request.body)
@@ -155,6 +158,7 @@ def api_list_appointments(request):
 
 @require_http_methods(["DELETE"])
 def api_delete_appointment(request, pk):
+    # Delete an appointment
     if request.method == "DELETE":
         try:
             count, _ = Appointment.objects.filter(id=pk).delete()
@@ -170,6 +174,7 @@ def api_delete_appointment(request, pk):
 @require_http_methods(["PUT"])
 def api_cancel_appointment(request, id):
     if request.method == "PUT":
+    # Update an appointment status to "CANCEL"
         try:
             appointment = Appointment.objects.get(id=id)
             appointment.cancel()
@@ -187,6 +192,7 @@ def api_cancel_appointment(request, id):
 
 @require_http_methods(["PUT"])
 def api_finish_appointment(request, id):
+        # Update an appointment status to "FINISHED"
     if request.method == "PUT":
         try:
             appointment = Appointment.objects.get(id=id)

@@ -2,21 +2,6 @@ import React, { useEffect, useState } from "react";
 
 function TechnicianCreate() {
 
-    const fetchData = async () => {
-        const url = "http://localhost:8080/api/technicians/";
-
-        const response = await fetch(url);
-
-        if (response.ok) {
-            const data = await response.json();
-
-        }
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
-
     const [firstName, setFirstName] = useState("");
     const [status, setStatus] = useState("");
     const handleFirstNameChange = (event) => {
@@ -33,7 +18,7 @@ function TechnicianCreate() {
         const value = event.target.value;
         setEmployeeId(value);
     }
-
+    // Submits technician form
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -64,6 +49,7 @@ function TechnicianCreate() {
             setStatus("error")
         }
     }
+    // Displays message based on if appointment was successfully created or not
     function isStatus() {
         if (status === 'success') {
             return (
