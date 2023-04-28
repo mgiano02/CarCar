@@ -33,7 +33,7 @@ function ModelList(props){
                             <td className='w-25 p-3'>{model.name}</td>
                             <td className='w-25 p-3'>{model.manufacturer.name}</td>
                             <td>
-                                <img className='w-50 p-3' src={model.picture_url} />
+                                <img className='w-50 p-3' alt="car" src={model.picture_url} />
                             </td>
                         </tr>
                     )

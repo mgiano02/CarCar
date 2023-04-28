@@ -71,8 +71,8 @@ Here are step by step instructions to run this project:
 1. clone this Repository to the local machine \
 Run the following commands in the project directory:
 2. docker volume create beta-data
-2. docker compose-build
-3. docker compose-up
+2. docker-compose build
+3. docker-compose up
 (If on mac, safely ignore the warning about an environment variable)
 4. Check if all containers are running
 5. In your browser go to http://localhost:3000/
