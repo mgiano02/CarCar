@@ -128,7 +128,7 @@ function ServiceAppointmentList() {
             {appointments.map(appointment => {
                 return (
                     <tr key={appointment.vin}>
-                        <td>{appointment.vin}</td>
+                        <td>{appointment.vin.toUpperCase()}</td>
                         {isVip(appointment.vin)}
                         <td>{appointment.customer}</td>
                         <td>{new Date(appointment.date_time).toLocaleDateString()}</td>

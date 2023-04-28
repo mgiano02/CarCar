@@ -3,6 +3,8 @@ import React, {useEffect, useState} from "react";
 function ServiceAppointmentCreate() {
 
     const [technicians, setTechnicians] = useState([]);
+    const [customers, setCustomers] = useState([]);
+
 
     const [vin, setVin] = useState("");
     const handleVinChange = (event) => {
@@ -47,8 +49,21 @@ function ServiceAppointmentCreate() {
         }
     }
 
+    const fetchCustomerData = async () => {
+        const url = "http://localhost:8090/api/customers/";
+
+        const response = await fetch(url);
+
+        if (response.ok) {
+            const data = await response.json()
+            console.log(data.customers)
+            setCustomers(data.customers)
+        }
+    }
+
     useEffect(() => {
         fetchData();
+        fetchCustomerData();
     }, []);
 
     const handleSubmit = async (event) => {
@@ -97,9 +112,17 @@ function ServiceAppointmentCreate() {
                 <input onChange={handleVinChange} placeholder="Automobile VIN" required value={vin} type="text" name="vin" id="vin" className="form-control"></input>
                 <label htmlFor="vin">Automobile VIN</label>
                 </div>
-                <div className="form-floating mb-3">
-                <input onChange={handleCustomerChange} placeholder="Customer" required value={customer} type="text" name="customer" id="customer" className="form-control"></input>
-                <label htmlFor="customer">Customer</label>
+                <div className="mb-3">
+                <select onChange={handleCustomerChange} placeholder="Customer" required value={customer} name="customer" id="customer" className="form-select">
+                    <option htmlFor="customer">Customer</option>
+                    {customers.map(customer => {
+                            return (
+                                <option key={customer.id} value={customer.first_name + " " + customer.last_name}>
+                                    {customer.first_name} {customer.last_name}
+                                </option>
+                            )
+                        })}
+                </select>
                 </div>
                 <div className="form-floating mb-3">
                 <input onChange={handleDateChange} placeholder="Date" required value={date} type="datetime-local" name="date" id="date" className="form-control"></input>
@@ -114,8 +137,8 @@ function ServiceAppointmentCreate() {
                     <option value="">Choose a Technician</option>
                         {technicians.map(technician => {
                             return (
-                                <option key={technician.employee_id} value={technician.employee_id}>
-                                    {technician.employee_id}
+                                <option key={technician.employee_id} value={technician.first_name}>
+                                    {technician.first_name}
                                 </option>
                             )
                         })}

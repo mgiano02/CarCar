@@ -12,7 +12,7 @@ function ServiceHistory() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
+            console.log("data", data.appointments)
             setAppointments(data.appointments)
             setfilteredAppointments(data.appointments)
         }
@@ -85,8 +85,8 @@ function ServiceHistory() {
     return (
         <>
         <h1>Service Appointments</h1>
-            <input onChange={handleSearchVinChange} className="form-control" type="search" aria-label="Search" placeholder="Search by VIN"/>
-            <button onClick={handleClick} className="btn btn-outline-success">Search</button>
+            <input onChange={handleSearchVinChange} className="form-control mt-3" type="search" aria-label="Search" placeholder="Search by VIN"/>
+            <button onClick={handleClick} className="btn btn-outline-success mt-2">Search</button>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -104,7 +104,7 @@ function ServiceHistory() {
                 {filteredAppointments.map(appointment => {
                     return (
                         <tr key={appointment.vin}>
-                            <td>{appointment.vin}</td>
+                            <td>{appointment.vin.toUpperCase()}</td>
                             {isVip(appointment.vin)}
                             <td>{appointment.customer}</td>
                             <td>{new Date(appointment.date_time).toLocaleDateString()}</td>
