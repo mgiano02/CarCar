@@ -28,7 +28,6 @@ function VehicleModelCreate() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
             setManufacturers(data.manufacturers)
         }
     }
@@ -55,12 +54,8 @@ function VehicleModelCreate() {
                 "Content-Type": "application/json",
             },
         };
-        console.log(data);
         const response = await fetch(modelUrl, fetchConfig);
         if (response.ok) {
-            const newModel = await response.json();
-            console.log(newModel);
-
             setName("");
             setPicture("");
             setManufacturer("");

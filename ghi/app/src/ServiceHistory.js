@@ -12,7 +12,6 @@ function ServiceHistory() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log("data", data.appointments)
             setAppointments(data.appointments)
             setfilteredAppointments(data.appointments)
         }
@@ -35,8 +34,6 @@ function ServiceHistory() {
             //         <td>No</td>
             //     )
             // }
-
-            console.log(data.autos);
             setAutomobiles(data.autos);
         }
     }
@@ -65,7 +62,7 @@ function ServiceHistory() {
         for (let auto of automobiles) {
             // if vin from appointment list is the same as the vin in the inventory list
             if (vin == auto.vin) {
-                console.log("test");
+
                 isVip = "Yes";
             }
             }

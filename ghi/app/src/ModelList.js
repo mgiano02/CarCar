@@ -8,7 +8,6 @@ function ModelList(props){
         if (response.ok) {
             const data = await response.json();
             setModels(data.models)
-            console.log(data)
         }
     }
     useEffect(() => {

@@ -43,7 +43,7 @@ Appointments can be updated to change the status field in the model based on the
 ## How to Run this Project
 
 Here are step by step instructions to run this project:
-1. clone this Repository to the local machine /
+1. clone this Repository to the local machine \
 Run the following commands in the project directory:
 2. docker volume create beta-data
 2. docker compose-build
@@ -56,7 +56,7 @@ Run the following commands in the project directory:
 
 Diagram of the different services and how they interact with each other. (Front and backend):
 
-![Alt text](Project-diagram.png)
+![Alt text](example-images/Project-diagram.png)
 
 ## API Documentation
 
@@ -69,7 +69,7 @@ What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-manufacturers.png)
+![Alt text](example-images/list-manufacturers.png)
 </details>
 </p>
 <br>
@@ -81,7 +81,7 @@ What is necessary: JSON body with field "name", URL with the POST request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-manufacturer.png)
+![Alt text](example-images/create-manufacturer.png)
 </details>
 </p>
 <br>
@@ -93,7 +93,7 @@ What is necessary: Path parameter as a manufacturer id, URL with a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](manufacturer-details.png)
+![Alt text](example-images/manufacturer-details.png)
 </details>
 </p>
 <br>
@@ -106,7 +106,7 @@ What is necessary: Path parameter as a manufacturer id, JSON body with field "na
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](update-manufacturer.png)
+![Alt text](example-images/update-manufacturer.png)
 </details>
 </p>
 <br>
@@ -119,7 +119,7 @@ What is necessary: Path parameter as a manufacturer id, URL with a DELETE reques
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-manufacturer.png)
+![Alt text](example-images/delete-manufacturer.png)
 </details>
 </p>
 <br>
@@ -134,7 +134,7 @@ What is necessary: Just the URL and a GET request \
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-models.png)
+![Alt text](example-images/list-models.png)
 </details>
 </p>
 <br>
@@ -148,7 +148,7 @@ What is necessary: JSON body with field "name", "picture_url", "manufacturer_id"
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-model.png)
+![Alt text](example-images/create-model.png)
 </details>
 </p>
 <br>
@@ -161,7 +161,7 @@ What is necessary: Path parameter as a model id, URL with a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](model-details.png)
+![Alt text](example-images/model-details.png)
 </details>
 </p>
 <br>
@@ -174,7 +174,7 @@ What is necessary: Path parameter as a model id, JSON body with at least one of 
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](update-models.png)
+![Alt text](example-images/update-models.png)
 </details>
 </p>
 <br>
@@ -187,7 +187,7 @@ What is necessary: Path parameter as a model id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-models.png)
+![Alt text](example-images/delete-models.png)
 </details>
 </p>
 <br>
@@ -202,7 +202,7 @@ What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-automobiles.png)
+![Alt text](example-images/list-automobiles.png)
 </details>
 </p>
 <br>
@@ -216,7 +216,7 @@ What is necessary: JSON body with field "color", "year", "vin", "sold", and "mod
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-automobiles.png)
+![Alt text](example-images/create-automobiles.png)
 </details>
 </p>
 <br>
@@ -229,7 +229,7 @@ What is necessary: Path parameter as an automobile id, URL with a GET request \
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](automobile-details.png)
+![Alt text](example-images/automobile-details.png)
 </details>
 </p>
 <br>
@@ -242,7 +242,7 @@ What is necessary: Path parameter as an automobile id, JSON body with at least o
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](update-automobiles.png)
+![Alt text](example-images/update-automobiles.png)
 </details>
 </p>
 <br>
@@ -255,7 +255,7 @@ What is necessary: Path parameter as an automobile id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-automobile.png)
+![Alt text](example-images/delete-automobile.png)
 </details>
 </p>
 <br>
@@ -270,7 +270,7 @@ What is necessary: Just the URL and a GET request \
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-technicians.png)
+![Alt text](example-images/list-technicians.png)
 </details>
 </p>
 <br>
@@ -283,7 +283,7 @@ What is necessary: JSON body with field "first_name", "last_name", and "employee
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-technician.png)
+![Alt text](example-images/create-technician.png)
 </details>
 </p>
 <br>
@@ -296,7 +296,7 @@ What is necessary: Path parameter as a technician id, URL with a DELETE request 
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-technician.png)
+![Alt text](example-images/delete-technician.png)
 </details>
 </p>
 <br>
@@ -311,7 +311,7 @@ What is necessary: Just the URL and a GET request \
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-appointments.png)
+![Alt text](example-images/list-appointments.png)
 </details>
 </p>
 <br>
@@ -324,7 +324,7 @@ What is necessary: JSON body with field "date_time", "reason", "status", "vin", 
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-appointment.png)
+![Alt text](example-images/create-appointment.png)
 </details>
 </p>
 <br>
@@ -337,7 +337,7 @@ What is necessary: Path parameter as an appointment id, URL with a DELETE reques
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-appointment.png)
+![Alt text](example-images/delete-appointment.png)
 </details>
 </p>
 <br>
@@ -350,7 +350,7 @@ What is necessary: Path parameter as an appointment id, URL with a PUT request \
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](update-appointment-cancel.png)
+![Alt text](example-images/update-appointment-cancel.png)
 </details>
 </p>
 <br>
@@ -362,7 +362,7 @@ What is necessary: Path parameter as an appointment id, URL with a PUT request \
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](update-appointment-finish.png)
+![Alt text](example-images/update-appointment-finish.png)
 </details>
 </p>
 <br>
@@ -378,7 +378,7 @@ What is necessary: Just the URL and a GET request\
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-salespeople.png)
+![Alt text](example-images/list-salespeople.png)
 </details>
 </p>
 <br>
@@ -393,7 +393,7 @@ What is necessary: JSON body with field "first_name", "last_name" and "employee_
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-salesperson.png)
+![Alt text](example-images/create-salesperson.png)
 </details>
 </p>
 <br>
@@ -407,7 +407,7 @@ What is necessary: Path parameter as a salesperson id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-salesperson.png)
+![Alt text](example-images/delete-salesperson.png)
 </details>
 </p>
 <br>
@@ -422,7 +422,7 @@ What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-customer.png)
+![Alt text](example-images/list-customer.png)
 </details>
 </p>
 <br>
@@ -437,7 +437,7 @@ What is necessary: JSON body with field "first_name", "last_name", "address" and
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-customer.png)
+![Alt text](example-images/create-customer.png)
 </details>
 </p>
 <br>
@@ -451,7 +451,7 @@ What is necessary: Path parameter as a customer id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-customer.png)
+![Alt text](example-images/delete-customer.png)
 </details>
 </p>
 <br>
@@ -465,7 +465,7 @@ What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](list-sales.png)
+![Alt text](example-images/list-sales.png)
 </details>
 </p>
 <br>
@@ -480,7 +480,7 @@ What is necessary: JSON body with fields "automobile", "customer", "salesperson"
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](create-sale.png)
+![Alt text](example-images/create-sale.png)
 </details>
 </p>
 <br>
@@ -494,7 +494,7 @@ What is necessary: Path parameter as a customer sale id, URL with a DELETE reque
 <p>
 <details>
 <summary>Click for example image</summary>
-![Alt text](delete-sale.png)
+![Alt text](example-images/delete-sale.png)
 </details>
 </p>
 <br>

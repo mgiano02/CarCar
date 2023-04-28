@@ -28,7 +28,6 @@ function SaleHistory(props) {
         const person = event.target.value;
         const filtered = sales.filter(sale => sale.salesperson_id == person)
         setFilteredSales(filtered);
-        console.log(filtered)
     }
 
 

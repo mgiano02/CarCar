@@ -9,7 +9,6 @@ function TechnicianCreate() {
 
         if (response.ok) {
             const data = await response.json();
-            console.log(data.technicians);
 
         }
     }
@@ -42,7 +41,6 @@ function TechnicianCreate() {
         data.first_name = firstName;
         data.last_name = lastName;
         data.employee_id = employeeId;
-        console.log(data)
 
         const technicianUrl = "http://localhost:8080/api/technicians/";
         const fetchConfig = {
@@ -56,7 +54,6 @@ function TechnicianCreate() {
         const response = await fetch(technicianUrl, fetchConfig);
         if (response.ok) {
             const newTechnician = await response.json();
-            console.log(newTechnician);
 
             setFirstName("");
             setLastName("");

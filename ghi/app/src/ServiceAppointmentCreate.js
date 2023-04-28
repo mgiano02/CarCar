@@ -44,7 +44,6 @@ function ServiceAppointmentCreate() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data)
             setTechnicians(data.technicians)
         }
     }
@@ -56,7 +55,6 @@ function ServiceAppointmentCreate() {
 
         if (response.ok) {
             const data = await response.json()
-            console.log(data.customers)
             setCustomers(data.customers)
         }
     }
@@ -90,9 +88,6 @@ function ServiceAppointmentCreate() {
 
         const response = await fetch(appointmentUrl, fetchConfig);
         if (response.ok) {
-            const newAppointment = await response.json();
-            console.log(newAppointment);
-
             setVin("");
             setCustomer("");
             setDate("");

@@ -71,9 +71,6 @@ function SaleCreate(props) {
         };
         const response = await fetch(salesUrl, fetchConfig);
         if (response.ok) {
-            const newSale = await response.json();
-            console.log(newSale)
-
             setVin('');
             setSalesperson('');
             setCustomer('');

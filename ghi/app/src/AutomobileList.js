@@ -12,8 +12,6 @@ function AutomobileList() {
 
         if (response.ok) {
             const data = await response.json();
-            
-            console.log(data.autos);
             setAutomobiles(data.autos);
         }
     }
