@@ -14,7 +14,7 @@ function ServiceAppointmentList() {
 
         if (response.ok) {
             const data = await response.json()
-            setAppointments(data.appointments)
+            setAppointments(data.appointments.filter((appointment) => appointment.status === "PENDING"));
         }
     }
 
@@ -26,16 +26,6 @@ function ServiceAppointmentList() {
 
         if (response.ok) {
             const data = await response.json();
-
-            // if (data.autos.sold == true) {
-            //     return (
-            //         <td>Yes</td>
-            //     )
-            // } else {
-            //     return (
-            //         <td>No</td>
-            //     )
-            // }
 
             setAutomobiles(data.autos);
         }
@@ -66,6 +56,8 @@ function ServiceAppointmentList() {
         if (response.ok) {
             const cancelAppointment = await response.json();
             setStatus(cancelAppointment.status);
+            setAppointments(appointments.filter((appointment) => appointment.status === "PENDING"));
+            fetchAppointmentData();
         }
     }
 
@@ -88,6 +80,8 @@ function ServiceAppointmentList() {
         if (response.ok) {
             const finishAppointment = await response.json();
             setStatus(finishAppointment.status);
+            setAppointments(appointments.filter((appointment) => appointment.status === "PENDING"));
+            fetchAppointmentData();
         }
     }
 

@@ -5,7 +5,7 @@ from django.urls import reverse
 class Technician(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    employee_id = models.SmallIntegerField()
+    employee_id = models.SmallIntegerField(unique=True)
 
     def __str__(self):
         return self.employee_id
