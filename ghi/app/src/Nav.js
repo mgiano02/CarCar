@@ -59,13 +59,13 @@ function Nav() {
               <NavLink className="nav-link" to="/salespeople/history">Salesperson History</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/technician/new">Add a Technician</NavLink>
+              <NavLink className="nav-link" to="/technicians/new">Add a Technician</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/technician">Technicians</NavLink>
+              <NavLink className="nav-link" to="/technicians">Technicians</NavLink>
             </li>
             <li className="nav-item">
-              <NavLink className="nav-link" to="/appointment/new">Add an Appointment</NavLink>
+              <NavLink className="nav-link" to="/appointments/new">Add an Appointment</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className="nav-link" to="/appointments">Service Appointments</NavLink>

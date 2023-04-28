@@ -59,17 +59,165 @@ Example: \
 Endpoint: Get a manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Show a specific manufacturer \
-What is necessary: \
+What is necessary: Path parameter as an id, URL with a GET request \
 Example: \
+![Alt text](manufacturer-details.png)
+
 
 Endpoint: Update manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Update a specific manufacturer \
-What is necessary: \
+What is necessary: Path parameter as an id, JSON body with field "name", URL with a PUT request \
 Example: \
+![Alt text](update-manufacturer.png)
+
 
 Endpoint: Delete manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: delete a specific manufacturer \
-What is necessary: \
+What is necessary: Path parameter as an id, URL with a DELETE request \
+Example: \
+![Alt text](delete-manufacturer.png)
+
+
+Vehicle Models
+
+Endpoint: List models \
+Url: http://localhost:8100/api/models/ \
+Description: show a list of all models \
+What is necessary: Just the URL and a GET request \
+Example: \
+![Alt text](list-models.png)
+
+
+Endpoint: Create model \
+Url: http://localhost:8100/api/models/ \
+Description: Create a new model \
+What is necessary: JSON body with field "name", "picture_url", "manufacturer_id". URL with the POST request \
+Example: \
+![Alt text](create-model.png)
+
+
+Endpoint: Get a model \
+Url: http://localhost:8100/api/models/:id \
+Description: Show a specific model \
+What is necessary: Path parameter as an id, URL with a GET request \
+Example: \
+![Alt text](model-details.png)
+
+
+Endpoint: Update model \
+Url: http://localhost:8100/api/models/:id \
+Description: Update a specific model \
+What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "name", "picture_url", "manufacturer_id". URL with a PUT request \
+Example: \
+![Alt text](update-models.png)
+
+
+Endpoint: Delete model \
+Url: http://localhost:8100/api/models/:id \
+Description: delete a specific model \
+What is necessary: Path parameter as an id, URL with a DELETE request \
+Example: \
+![Alt text](delete-models.png)
+
+
+Automobiles
+
+Endpoint: List automobiles \
+Url: http://localhost:8100/api/automobiles/ \
+Description: show a list of all automobiles \
+What is necessary: Just the URL and a GET request \
+Example: \
+![Alt text](list-automobiles.png)
+
+
+Endpoint: Create automobile \
+Url: http://localhost:8100/api/automobiles/ \
+Description: Create a new automobile \
+What is necessary: JSON body with field "color", "year", "vin", "sold", and "model". URL with the POST request \
+Example: \
+![Alt text](create-automobiles.png)
+
+
+Endpoint: Get a automobile \
+Url: http://localhost:8100/api/automobiles/:id \
+Description: Show a specific automobile \
+What is necessary: Path parameter as an id, URL with a GET request \
+Example: \
+![Alt text](automobile-details.png)
+
+
+Endpoint: Update automobile \
+Url: http://localhost:8100/api/automobiles/:id \
+Description: Update a specific automobile \
+What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request \
+Example: \
+![Alt text](update-automobiles.png)
+
+
+Endpoint: Delete automobile \
+Url: http://localhost:8100/api/automobiles/:id \
+Description: delete a specific automobile \
+What is necessary: Path parameter as an id, URL with a DELETE request \
+Example: \
+![Alt text](delete-automobile.png)
+
+
+Technicians
+
+Endpoint: List technicians \
+Url: http://localhost:8080/api/technicians/ \
+Description: show a list of all technicians \
+What is necessary: Just the URL and a GET request \
+Example: \
+
+
+
+Endpoint: Create technician \
+Url: http://localhost:8080/api/technicians/ \
+Description: Create a new technician \
+What is necessary: JSON body with field "color", "year", "vin", "sold", and "model". URL with the POST request \
+Example: \
+
+
+
+Endpoint: Delete technician \
+Url: http://localhost:8080/api/technicians/:id \
+Description: delete a specific technician \
+What is necessary: Path parameter as an id, URL with a DELETE request \
+Example: \
+
+
+
+Appointments
+
+Endpoint: List appointments \
+Url: http://localhost:8080/api/appointments/ \
+Description: show a list of all appointments \
+What is necessary: Just the URL and a GET request \
+Example: \
+
+
+
+Endpoint: Create appointment \
+Url: http://localhost:8080/api/appointments/ \
+Description: Create a new appointment \
+What is necessary: JSON body with field "color", "year", "vin", "sold", and "model". URL with the POST request \
+Example: \
+
+
+
+Endpoint: Update appointment \
+Url: http://localhost:8100/api/appointments/:id/cancel \
+Description: Update a specific appointment to the cancel status \
+What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request \
+Example: \
+
+
+
+Endpoint: Update automobile \
+Url: http://localhost:8080/api/appointments/:id/finish \
+Description: Update a specific appointment to the finish status \
+What is necessary: Path parameter as an id, URL with a DELETE request \
 Example: \
