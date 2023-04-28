@@ -9,6 +9,7 @@ function SaleCreate(props) {
     const [salesperson, setSalesperson] = useState('');
     const [customer, setCustomer] = useState('');
     const [price, setPrice] = useState('')
+    const [status, setStatus] = useState('')
 
     const fetchData = async () => {
         const autoUrl = 'http://localhost:8100/api/automobiles/';
@@ -71,10 +72,25 @@ function SaleCreate(props) {
         };
         const response = await fetch(salesUrl, fetchConfig);
         if (response.ok) {
+            setStatus('success');
             setVin('');
             setSalesperson('');
             setCustomer('');
             setPrice('');
+        } else {
+            setStatus('Sale did not get created')
+        }
+    }
+
+    function isStatus() {
+        if (status === 'success') {
+            return (
+                <p className="alert alert-success">Sale successfully created</p>
+            )
+        } else if (status === 'error') {
+            return (
+                <p className="alert alert-danger">Can't create sale</p>
+            )
         }
     }
 
@@ -83,6 +99,7 @@ function SaleCreate(props) {
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Record a new sale</h1>
+            {isStatus()}
             <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                     <select onChange={handleVinChange} placeholder="vin" id="vin" className="form-select" value={vin}>

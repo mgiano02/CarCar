@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 function VehicleModelCreate() {
 
     const [manufacturers, setManufacturers] = useState([]);
+    const [status, setStatus] = useState('')
 
 
     const [name, setName] = useState("");
@@ -59,14 +60,31 @@ function VehicleModelCreate() {
             setName("");
             setPicture("");
             setManufacturer("");
+            setStatus("success")
+        } else {
+            setStatus("error")
         }
     }
+
+    function isStatus() {
+      if (status === 'success') {
+          return (
+              <p className="alert alert-success">Vehicle model successfully created</p>
+          )
+      } else if (status === 'error') {
+          return (
+              <p className="alert alert-danger">Can't create vehicle</p>
+          )
+      }
+  }
+
 
     return (
         <div className="row">
           <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
               <h1>Create a Vehicle Model</h1>
+              {isStatus()}
               <form onSubmit={handleSubmit} id="create-form">
                 <div className="form-floating mb-3">
                   <input onChange={handleNameChange} placeholder="Vehicle Model Name" required value={name} type="text" name="name" id="name" className="form-control"></input>

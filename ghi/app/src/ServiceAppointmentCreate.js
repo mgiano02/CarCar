@@ -4,6 +4,7 @@ function ServiceAppointmentCreate() {
 
     const [technicians, setTechnicians] = useState([]);
     const [customers, setCustomers] = useState([]);
+    const [status, setStatus] = useState("");
 
 
     const [vin, setVin] = useState("");
@@ -94,6 +95,20 @@ function ServiceAppointmentCreate() {
             // setTime("");
             setTechnician("");
             setReason("");
+            setStatus("success");
+        } else {
+            setStatus("error")
+        }
+    }
+    function isStatus() {
+        if (status === 'success') {
+            return (
+                <p className="alert alert-success">Service appointment successfully created</p>
+            )
+        } else if (status === 'error') {
+            return (
+                <p className="alert alert-danger">Can't create Service appointment</p>
+            )
         }
     }
 
@@ -102,6 +117,7 @@ function ServiceAppointmentCreate() {
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Add an appointment</h1>
+            {isStatus()}
             <form onSubmit={handleSubmit} id="create-appointment-form">
                 <div className="form-floating mb-3">
                 <input onChange={handleVinChange} placeholder="Automobile VIN" required value={vin} type="text" name="vin" id="vin" className="form-control"></input>

@@ -4,6 +4,7 @@ function SalespeopleCreate(props) {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [employeeId, setEmployeeId] = useState('');
+    const [status, setStatus] = useState('');
 
     const handleFirstNameChange = (event) => {
         const value = event.target.value;
@@ -38,14 +39,29 @@ function SalespeopleCreate(props) {
             setFirstName('');
             setLastName('');
             setEmployeeId('');
-        };
+            setStatus('success')
+        } else {
+            setStatus('error')
+        }
     };
+    function isStatus() {
+        if (status === 'success') {
+            return (
+                <p className="alert alert-success">Salesperson successfully created</p>
+            )
+        } else if (status === 'error') {
+            return (
+                <p className="alert alert-danger">Can't create salesperson</p>
+            )
+        }
+    }
 
     return (
         <div className="row">
         <div className="offset-3 col-6">
             <div className="shadow p-4 mt-4">
             <h1>Add a Salesperson</h1>
+            {isStatus()}
             <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3">
                 <input onChange={handleFirstNameChange} placeholder="First Name..." required type="text" name="first_name" id="first_name" className="form-control" value={firstName}></input>
