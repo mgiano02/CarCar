@@ -78,7 +78,7 @@ function SaleCreate(props) {
             setCustomer('');
             setPrice('');
         } else {
-            setStatus('Sale did not get created')
+            setStatus('error')
         }
     }
 
