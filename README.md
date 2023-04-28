@@ -12,8 +12,11 @@ microservice, here.
 
 ## Sales microservice
 
-Explain your models and integration with the inventory
-microservice, here.
+* In the Sales microservice exist 4 Models: Salesperson, Customer, Sale and AutomobileVO (You can see it in the Project Diagram)
+* The value object "AutomobileVO" is getting its data, with the help of a poller, from the inventory microservice data. It gets updated every 60 seconds and has the field "vin".
+* Salesperson has the fields: "first_name", "last_name" and "employee_id"
+* Customer has the fields "first_name", "last_name", "address" and "phone_number"
+* Sale has three Foreign keys, it references salesperson, customer and AutomobileVO. it has another field "price".
 
 
 ## How to Run this Project
@@ -41,7 +44,7 @@ Diagram of the different services and how they interact with each other. (Front 
 Endpoint: List manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
 Description: show a list of all manufacturers \
-What is necessary: Just the URL and a GET request \
+What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -53,7 +56,7 @@ What is necessary: Just the URL and a GET request \
 Endpoint: Create manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
 Description: Create a new manufacturer \
-What is necessary: JSON body with field "name", URL with the POST request \
+What is necessary: JSON body with field "name", URL with the POST request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -65,7 +68,7 @@ What is necessary: JSON body with field "name", URL with the POST request \
 Endpoint: Get a manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Show a specific manufacturer \
-What is necessary: Path parameter as an id, URL with a GET request \
+What is necessary: Path parameter as an id, URL with a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -78,7 +81,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 Endpoint: Update manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: Update a specific manufacturer \
-What is necessary: Path parameter as an id, JSON body with field "name", URL with a PUT request \
+What is necessary: Path parameter as an id, JSON body with field "name", URL with a PUT request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -91,7 +94,7 @@ What is necessary: Path parameter as an id, JSON body with field "name", URL wit
 Endpoint: Delete manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
 Description: delete a specific manufacturer \
-What is necessary: Path parameter as an id, URL with a DELETE request \
+What is necessary: Path parameter as an id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -120,7 +123,7 @@ What is necessary: Just the URL and a GET request \
 Endpoint: Create model \
 Url: http://localhost:8100/api/models/ \
 Description: Create a new model \
-What is necessary: JSON body with field "name", "picture_url", "manufacturer_id". URL with the POST request \
+What is necessary: JSON body with field "name", "picture_url", "manufacturer_id". URL with the POST request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -133,7 +136,7 @@ What is necessary: JSON body with field "name", "picture_url", "manufacturer_id"
 Endpoint: Get a model \
 Url: http://localhost:8100/api/models/:id \
 Description: Show a specific model \
-What is necessary: Path parameter as an id, URL with a GET request \
+What is necessary: Path parameter as an id, URL with a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -146,7 +149,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 Endpoint: Update model \
 Url: http://localhost:8100/api/models/:id \
 Description: Update a specific model \
-What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "name", "picture_url", "manufacturer_id". URL with a PUT request \
+What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "name", "picture_url", "manufacturer_id". URL with a PUT request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -159,7 +162,7 @@ What is necessary: Path parameter as an id, JSON body with at least one of the f
 Endpoint: Delete model \
 Url: http://localhost:8100/api/models/:id \
 Description: delete a specific model \
-What is necessary: Path parameter as an id, URL with a DELETE request \
+What is necessary: Path parameter as an id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -174,7 +177,7 @@ What is necessary: Path parameter as an id, URL with a DELETE request \
 Endpoint: List automobiles \
 Url: http://localhost:8100/api/automobiles/ \
 Description: show a list of all automobiles \
-What is necessary: Just the URL and a GET request \
+What is necessary: Just the URL and a GET request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -214,7 +217,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 Endpoint: Update automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: Update a specific automobile \
-What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request \
+What is necessary: Path parameter as an id, JSON body with at least one of the fields from the following: "color", "year", "vin", "sold", and "model". URL with a PUT request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -227,7 +230,7 @@ What is necessary: Path parameter as an id, JSON body with at least one of the f
 Endpoint: Delete automobile \
 Url: http://localhost:8100/api/automobiles/:id \
 Description: delete a specific automobile \
-What is necessary: Path parameter as an id, URL with a DELETE request \
+What is necessary: Path parameter as an id, URL with a DELETE request
 <p>
 <details>
 <summary>Click for example image</summary>
@@ -324,7 +327,7 @@ What is necessary: Just the URL and a GET request\
 Endpoint: Create salesperson \
 Url: http://localhost:8090/api/salespeople/\
 Description: Create a new salesperson \
-What is necessary: JSON body with field "first_name", "last_name" and "employee_id". URL with the POST request \
+What is necessary: JSON body with field "first_name", "last_name" and "employee_id". URL with the POST request
 
 <p>
 <details>
@@ -338,7 +341,7 @@ What is necessary: JSON body with field "first_name", "last_name" and "employee_
 Endpoint: Delete salesperson \
 Url: http://localhost:8090/api/salespeople/:id \
 Description: delete a specific salesperson \
-What is necessary: Path parameter as a salesperson id, URL with a DELETE request \
+What is necessary: Path parameter as a salesperson id, URL with a DELETE request
 
 <p>
 <details>
@@ -353,7 +356,7 @@ What is necessary: Path parameter as a salesperson id, URL with a DELETE request
 Endpoint: List customers \
 Url: http://localhost:8090/api/salespeople/ \
 Description: show a list of all salespeople \
-What is necessary: Just the URL and a GET request \
+What is necessary: Just the URL and a GET request
 
 <p>
 <details>
@@ -368,7 +371,7 @@ What is necessary: Just the URL and a GET request \
 Endpoint: Create customer \
 Url: http://localhost:8090/api/salespeople/\
 Description: Create a new salesperson \
-What is necessary: JSON body with field "first_name", "last_name", "address" and "phone_number". URL with the POST request \
+What is necessary: JSON body with field "first_name", "last_name", "address" and "phone_number". URL with the POST request
 
 <p>
 <details>
@@ -409,7 +412,7 @@ What is necessary: Just the URL and a GET request
 
 
 Endpoint: Create sale \
-Url: http://localhost:8090/api/sales/\
+Url: http://localhost:8090/api/sales/ \
 Description: Create a new sale \
 What is necessary: JSON body with fields "automobile", "customer", "salesperson", "price". URL with the POST request
 
