@@ -51,7 +51,6 @@ What is necessary: Just the URL and a GET request \
 </details>
 </p>
 <br>
-<br>
 
 Endpoint: Create manufacturers \
 Url: http://localhost:8100/api/manufacturers/ \
@@ -63,8 +62,7 @@ What is necessary: JSON body with field "name", URL with the POST request \
 ![Alt text](create-manufacturer.png)
 </details>
 </p>
-\
-\
+<br>
 
 Endpoint: Get a manufacturer \
 Url: http://localhost:8100/api/manufacturers/:id \
@@ -76,8 +74,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 ![Alt text](manufacturer-details.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Update manufacturer \
@@ -90,8 +87,7 @@ What is necessary: Path parameter as an id, JSON body with field "name", URL wit
 ![Alt text](update-manufacturer.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Delete manufacturer \
@@ -104,8 +100,7 @@ What is necessary: Path parameter as an id, URL with a DELETE request \
 ![Alt text](delete-manufacturer.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 ### Vehicle Models
@@ -120,8 +115,7 @@ What is necessary: Just the URL and a GET request \
 ![Alt text](list-models.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 
@@ -135,8 +129,7 @@ What is necessary: JSON body with field "name", "picture_url", "manufacturer_id"
 ![Alt text](create-model.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Get a model \
@@ -149,8 +142,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 ![Alt text](model-details.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Update model \
@@ -177,8 +169,7 @@ What is necessary: Path parameter as an id, URL with a DELETE request \
 ![Alt text](delete-models.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 ### Automobiles
@@ -193,8 +184,7 @@ What is necessary: Just the URL and a GET request \
 ![Alt text](list-automobiles.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 
@@ -208,8 +198,7 @@ What is necessary: JSON body with field "color", "year", "vin", "sold", and "mod
 ![Alt text](create-automobiles.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Get a automobile \
@@ -222,8 +211,7 @@ What is necessary: Path parameter as an id, URL with a GET request \
 ![Alt text](automobile-details.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Update automobile \
@@ -236,8 +224,7 @@ What is necessary: Path parameter as an id, JSON body with at least one of the f
 ![Alt text](update-automobiles.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 Endpoint: Delete automobile \
@@ -250,8 +237,7 @@ What is necessary: Path parameter as an id, URL with a DELETE request \
 ![Alt text](delete-automobile.png)
 </details>
 </p>
-\
-\
+<br>
 
 
 ### Technicians
