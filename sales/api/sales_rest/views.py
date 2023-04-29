@@ -70,9 +70,9 @@ def api_delete_salespeople(request, pk):
         response.status_code = 200
         return response
     except Salesperson.DoesNotExist:
-            response = JsonResponse({"message": "No Salesperson to delete"})
-            response.status_code = 400
-            return response
+        response = JsonResponse({"message": "No Salesperson to delete"})
+        response.status_code = 400
+        return response
 
 
 
@@ -110,9 +110,9 @@ def api_delete_customer(request, pk):
         return JsonResponse({"message": "Customer got deleted"})
 
     except Customer.DoesNotExist:
-            response = JsonResponse({"message": "Customer does not exist"})
-            response.status_code = 400
-            return response
+        response = JsonResponse({"message": "Customer does not exist"})
+        response.status_code = 400
+        return response
 
 
 @require_http_methods(["GET", "POST"])
@@ -171,6 +171,6 @@ def api_delete_sale(request, pk):
         Sale.objects.filter(id=pk).delete()
         return JsonResponse({"message": "Sale got deleted"})
     except Sale.DoesNotExist:
-            response = JsonResponse({"message": "Sale does not exist"})
-            response.status_code = 400
-            return response
+        response = JsonResponse({"message": "Sale does not exist"})
+        response.status_code = 400
+        return response
