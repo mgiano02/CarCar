@@ -20,7 +20,7 @@ def poll():
             # Write your polling logic, here
 
             # Obtain automobile data from inventory
-            response = requests.get("http://project-beta-inventory-api-1:8000/api/automobiles")
+            response = requests.get("http://inventory-api:8000/api/automobiles")
             # Extract json data into usable python code
             content = json.loads(response.content)
             # Loops through each automobile in the list of automobiles obtained from inventory
